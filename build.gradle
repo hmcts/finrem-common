@@ -1,60 +1,73 @@
-def versions = [
-  lombok   : '1.18.22',
-  hmctsCcdClient: '4.8.6',
-  hmctsIdamJavaClient : '2.0.1',
-  hmctsLogging: '5.1.5'
-]
-
 plugins {
-  id 'java'
-  id 'java-library'
-  id 'maven-publish'
-  id 'checkstyle'
-  id 'maven'
-  id "org.owasp.dependencycheck" version "6.5.3"
+    id 'java-library'
+    id 'maven-publish'
+    id 'checkstyle'
+    id 'pmd'
+    id 'org.sonarqube' version '3.0'
+    id 'org.owasp.dependencycheck' version '6.2.2'
 }
+
+def versions = [
+    lombok             : '1.18.22',
+    hmctsCcdClient     : '4.8.6',
+    hmctsIdamJavaClient: '2.0.1',
+    hmctsLogging       : '5.1.5',
+    pmd                : '6.19.0',
+    checkstyle         : '8.32',
+    springBoot         : '2.3.11.RELEASE'
+]
 
 def buildNumber = System.getenv("RELEASE_VERSION")?.replace("refs/tags/", "") ?: "DEV-SNAPSHOT"
 version buildNumber
 
 repositories {
-  mavenLocal()
-  mavenCentral()
-  maven { url 'https://jitpack.io' }
-  maven {
-    url 'https://repo.spring.io/libs-milestone'
-  }
-}
-
-checkstyle {
-  maxWarnings = 0
-  toolVersion = '8.32'
-  configDir = new File(rootDir, 'config/checkstyle')
-}
-
-artifacts {
-  archives sourcesJar
-  archives javadocJar
-}
-
-publishing {
-  publications {
-    Main(MavenPublication) {
-      from components.java
-      artifactId 'finrem-common'
-      artifact sourcesJar
-      artifact javadocJar
-      groupId project.group
-      version project.version
+    mavenLocal()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    maven {
+        url 'https://repo.spring.io/libs-milestone'
     }
-  }
 }
 
 dependencies {
-  implementation group: 'com.github.hmcts', name: 'java-logging', version: versions.hmctsLogging
-  implementation group: 'com.github.hmcts', name: 'ccd-client', version: versions.hmctsCcdClient
-  implementation group: 'com.github.hmcts', name: 'idam-java-client', version: versions.hmctsIdamJavaClient
-  implementation group: 'org.projectlombok', name: 'lombok', version: versions.lombok
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: versions.lombok
 
-  annotationProcessor group: 'org.projectlombok', name: 'lombok', version: versions.lombok
+    implementation group: 'com.github.hmcts', name: 'java-logging', version: versions.hmctsLogging
+    implementation group: 'com.github.hmcts', name: 'ccd-client', version: versions.hmctsCcdClient
+    implementation group: 'org.projectlombok', name: 'lombok', version: versions.lombok
 }
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "finrem-common"
+        property "sonar.exclusions", sonarExclusions.join(', ')
+        property "sonar.dynamicAnalysis", "reuseReports"
+        property "sonar.dependencyCheck.reportPath", "${project.buildDir}/reports/dependency-check-report.xml"
+    }
+}
+
+pmd {
+    toolVersion = versions.pmd
+    ignoreFailures = true
+    sourceSets = [sourceSets.main, sourceSets.test]
+    reportsDir = file("$project.buildDir/reports/pmd")
+    ruleSetFiles = files("config/pmd/ruleset.xml")
+}
+
+checkstyle {
+    maxWarnings = 0
+    toolVersion = versions.checkstyle
+    configFile = new File(rootDir, 'config/checkstyle/checkstyle.xml')
+}
+
+publishing {
+    publications {
+        Main(MavenPublication) {
+            from components.java
+            artifactId 'finrem-common'
+            groupId project.group
+            version project.version
+        }
+    }
+}
+
