@@ -1,0 +1,13 @@
+package uk.gov.hmcts.reform.finrem.ccd.domain;
+
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+public enum PensionDocumentType {
+    FORM_P1,
+    FORM_P2,
+    FORM_PPF,
+    FORM_PPF1,
+    FORM_PPF2
+}

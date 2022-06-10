@@ -1,10 +1,8 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
-
-import java.util.Arrays;
 
 @RequiredArgsConstructor
 public enum State {
@@ -42,20 +40,14 @@ public enum State {
     GENERAL_APPLICATION("generalApplication"),
     GENERAL_APPLICATION_AWAITING_JUDICIARY_RESPONSE("generalApplicationAwaitingJudiciaryResponse"),
     GENERAL_APPLICATION_OUTCOME("generalApplicationOutcome"),
+    @JsonEnumDefaultValue
     UNKNOWN("unknown");
 
     private final String id;
-
 
     @JsonValue
     public String getId() {
         return id;
     }
 
-    @JsonCreator
-    public static State getById(String id) {
-        return Arrays.stream(State.values())
-            .filter(state -> state.id.equals(id))
-            .findFirst().orElse(State.UNKNOWN);
-    }
 }

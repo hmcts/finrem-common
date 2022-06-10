@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import uk.gov.hmcts.reform.ccd.client.model.Classification;
 
 import java.time.LocalDateTime;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class FinremCaseDetails {
 
@@ -20,12 +22,14 @@ public class FinremCaseDetails {
     private String jurisdiction;
     private State state;
     private LocalDateTime createdDate;
-    private String caseTypeId;
-    private FinremCaseData caseData;
     private Integer securityLevel;
-    private Classification securityClassification;
     private String callbackResponseStatus;
     private LocalDateTime lastModified;
+    private Classification securityClassification;
+    private FinremCaseData caseData;
+
+    @JsonProperty("caseTypeId")
+    private CaseType caseType;
 
     @JsonProperty("locked_by_user_id")
     private Integer lockedBy;

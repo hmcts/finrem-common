@@ -1,10 +1,8 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
-
-import java.util.Arrays;
 
 @RequiredArgsConstructor
 public enum EventType {
@@ -134,6 +132,7 @@ public enum EventType {
     UPLOAD_CONFIDENTIAL_DOCUMENT("FR_uploadConfidentialDocument"),
     UPDATE_FRC_INFORMATION("FR_updateFRCInformation"),
     MANAGE_HEARING_BUNDLES("FR_manageHearingBundles"),
+    @JsonEnumDefaultValue
     NONE("");
 
     private final String ccdType;
@@ -141,12 +140,5 @@ public enum EventType {
     @JsonValue
     public String getCcdType() {
         return ccdType;
-    }
-
-    @JsonCreator
-    public static EventType getEventType(String ccdType) {
-        return Arrays.stream(EventType.values())
-            .filter(eventTypeValue -> eventTypeValue.ccdType.equals(ccdType))
-            .findFirst().orElse(EventType.NONE);
     }
 }
