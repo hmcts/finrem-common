@@ -7,20 +7,9 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.RequiredArgsConstructor;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-@RequiredArgsConstructor
 public enum StageReached {
 
-    DECREE_NISI("Decree Nisi"),
-    DECREE_ABSOLUTE("Decree Absolute"),
-    PETITION_ISSUED("Petition Issued"),
-
-    @JsonEnumDefaultValue
-    UNKNOWN("unknown");
-
-    private final String id;
-
-    @JsonValue
-    public String getId() {
-        return id;
-    }
+    DECREE_NISI,
+    DECREE_ABSOLUTE,
+    PETITION_ISSUED
 }

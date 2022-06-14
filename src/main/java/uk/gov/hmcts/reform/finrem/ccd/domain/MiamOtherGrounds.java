@@ -1,0 +1,19 @@
+package uk.gov.hmcts.reform.finrem.ccd.domain;
+
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+public enum MiamOtherGrounds {
+    FR_MS_MIAM_OTHER_GROUNDS_CHECKLIST_VALUE_1,
+    FR_MS_MIAM_OTHER_GROUNDS_CHECKLIST_VALUE_2,
+    FR_MS_MIAM_OTHER_GROUNDS_CHECKLIST_VALUE_3,
+    FR_MS_MIAM_OTHER_GROUNDS_CHECKLIST_VALUE_4,
+    FR_MS_MIAM_OTHER_GROUNDS_CHECKLIST_VALUE_5,
+    FR_MS_MIAM_OTHER_GROUNDS_CHECKLIST_VALUE_6,
+    FR_MS_MIAM_OTHER_GROUNDS_CHECKLIST_VALUE_7,
+    FR_MS_MIAM_OTHER_GROUNDS_CHECKLIST_VALUE_8,
+    FR_MS_MIAM_OTHER_GROUNDS_CHECKLIST_VALUE_9,
+    FR_MS_MIAM_OTHER_GROUNDS_CHECKLIST_VALUE_10,
+    FR_MS_MIAM_OTHER_GROUNDS_CHECKLIST_VALUE_11
+}

@@ -2,14 +2,11 @@ package uk.gov.hmcts.reform.finrem.ccd.domain;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import lombok.RequiredArgsConstructor;
-
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public enum Intention {
-
-    APPLY_TO_COURT_FOR,
-    PROCEED_WITH_APPLICATION,
-    APPLY_TO_VARY,
-    APPLY_TO_DISCHARGE_PERIODICAL_PAYMENT_ORDER
+public enum LiverpoolCourt {
+    FR_liverpoolList_1,
+    FR_liverpoolList_2,
+    FR_liverpoolList_3,
+    FR_liverpoolList_4,
+    FR_liverpoolList_5
 }
-

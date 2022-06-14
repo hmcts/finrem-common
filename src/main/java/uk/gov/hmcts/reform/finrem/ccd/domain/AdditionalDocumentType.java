@@ -2,14 +2,13 @@ package uk.gov.hmcts.reform.finrem.ccd.domain;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import lombok.RequiredArgsConstructor;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public enum Intention {
-
-    APPLY_TO_COURT_FOR,
-    PROCEED_WITH_APPLICATION,
-    APPLY_TO_VARY,
-    APPLY_TO_DISCHARGE_PERIODICAL_PAYMENT_ORDER
+public enum AdditionalDocumentType {
+    STATEMENT_IN_SUPPORT_INCLUDING_MPS,
+    SCHEDULE_OF_ASSETS,
+    LETTER,
+    NOTICE_OF_ACTING,
+    ALLOCATION_QUESTIONNAIRE,
+    OTHER
 }
-

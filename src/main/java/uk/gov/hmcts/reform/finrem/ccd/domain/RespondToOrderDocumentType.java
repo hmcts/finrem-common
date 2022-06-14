@@ -2,14 +2,12 @@ package uk.gov.hmcts.reform.finrem.ccd.domain;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import lombok.RequiredArgsConstructor;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public enum Intention {
-
-    APPLY_TO_COURT_FOR,
-    PROCEED_WITH_APPLICATION,
-    APPLY_TO_VARY,
-    APPLY_TO_DISCHARGE_PERIODICAL_PAYMENT_ORDER
+public enum RespondToOrderDocumentType {
+    APPLICANT_LETTER_EMAIL,
+    RESPONDENT_LETTER_EMAIL,
+    AMENDED_CONSENT_ORDER,
+    STATEMENT_REPORT,
+    OTHER
 }
-

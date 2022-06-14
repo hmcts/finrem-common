@@ -38,5 +38,4 @@ public enum OrderRefusalOption {
             .filter(option -> option.id.equals(ccdType))
             .findFirst().orElseThrow(IllegalArgumentException::new);
     }
-
 }

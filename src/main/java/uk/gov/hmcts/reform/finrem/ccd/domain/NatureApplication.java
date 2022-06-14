@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public enum NatureApplication {
-
     PERIODICAL_PAYMENT_ORDER,
     MAINTENANCE_PENDING_SUIT,
     LUMP_SUM_ORDER,
