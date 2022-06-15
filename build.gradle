@@ -12,8 +12,7 @@ def versions = [
     hmctsIdamJavaClient: '2.0.1',
     hmctsLogging       : '5.1.5',
     pmd                : '6.19.0',
-    checkstyle         : '8.32',
-    springBoot         : '2.3.11.RELEASE'
+    checkstyle         : '8.32'
 ]
 
 def buildNumber = System.getenv("RELEASE_VERSION")?.replace("refs/tags/", "") ?: "DEV-SNAPSHOT"
