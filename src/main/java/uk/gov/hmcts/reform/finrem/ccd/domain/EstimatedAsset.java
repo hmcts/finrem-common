@@ -10,7 +10,7 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 public enum EstimatedAsset {
 
-    UNABLE_TO_QUANTIFY("estimatedAssetsChecklist_"),
+    UNABLE_TO_QUANTIFY("estimatedAssetsChecklist_1"),
     UNDER_ONE_MILLION("estimatedAssetsChecklist_2"),
     ONE_TO_FIVE_MILLION("estimatedAssetsChecklist_3"),
     FIVE_TO_TEN_MILLION("estimatedAssetsChecklist_4"),
