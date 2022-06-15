@@ -11,6 +11,8 @@ bin/main/application.yaml
 .project
 .settings
 .springBeans
+.DS_Store
+*.log
 
 ### IntelliJ IDEA ###
 .idea
@@ -19,7 +21,4 @@ bin/main/application.yaml
 *.iml
 *.ipr
 
-.DS_Store
 
-applicationinsights-agent-*.jar
-*.log
