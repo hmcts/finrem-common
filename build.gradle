@@ -16,7 +16,9 @@ def versions = [
 ]
 
 def buildNumber = System.getenv("RELEASE_VERSION")?.replace("refs/tags/", "") ?: "DEV-SNAPSHOT"
+group 'com.github.hmcts'
 version buildNumber
+
 
 repositories {
     mavenLocal()
@@ -50,10 +52,27 @@ checkstyle {
     configFile = new File(rootDir, 'config/checkstyle/checkstyle.xml')
 }
 
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
 publishing {
     publications {
         Main(MavenPublication) {
             from components.java
+            artifact sourcesJar
+            artifact javadocJar
             artifactId 'finrem-common'
             groupId project.group
             version project.version
