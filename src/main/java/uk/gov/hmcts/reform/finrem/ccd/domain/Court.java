@@ -24,4 +24,19 @@ public class Court {
     private NottinghamCourt nottinghamCourtList;
     private CfcCourt cfcCourtList;
     private BirminghamCourt birminghamCourtList;
+    private LiverpoolCourt liverpoolCourtList;
+    private ManchesterCourt manchesterCourtList;
+    private LancashireCourt lancashireCourtList;
+    private ClevelandCourt cleavelandCourtList;
+    private NwYorkshireCourt nwyorkshireCourtList;
+    private HumberCourt humberCourtList;
+    private KentSurreyCourt kentSurreyCourtList;
+    private BedfordshireCourt bedfordshireCourtList;
+    private ThamesValleyCourt thamesvalleyCourtList;
+    private DevonCourt devonCourtList;
+    private DorsetCourt dorsetCourtList;
+    private BristolCourt bristolCourtList;
+    private NewportCourt newportCourtList;
+    private SwanseaCourt swanseaCourtList;
+    private NorthWalesCourt northWalesCourtList;
 }

@@ -2,7 +2,6 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'checkstyle'
-    id 'pmd'
     id 'org.sonarqube' version '3.0'
     id 'org.owasp.dependencycheck' version '6.2.2'
 }
@@ -44,14 +43,6 @@ sonarqube {
         property "sonar.dynamicAnalysis", "reuseReports"
         property "sonar.dependencyCheck.reportPath", "${project.buildDir}/reports/dependency-check-report.xml"
     }
-}
-
-pmd {
-    toolVersion = versions.pmd
-    ignoreFailures = true
-    sourceSets = [sourceSets.main, sourceSets.test]
-    reportsDir = file("$project.buildDir/reports/pmd")
-    ruleSetFiles = files("config/pmd/ruleset.xml")
 }
 
 checkstyle {

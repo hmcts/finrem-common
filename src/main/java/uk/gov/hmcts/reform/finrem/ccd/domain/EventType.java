@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 public enum EventType {
 
     MIGRATE_CASE("FR_migrateCase"),
-    MIGRATE_FRC_CASE("FR_migrateFrcCase"),
+    MIGRATE_Frc_CASE("FR_migrateFrcCase"),
     CASE_NOTES("FR_caseNotes"),
     AMEND_CASE("FR_amendCase"),
     AMENDED_CONSENT_ORDER("FR_amendedConsentOrder"),
@@ -130,7 +130,7 @@ public enum EventType {
     REVERT_TO_PREPARE_FOR_HEARING("FR_revertToPrepareForHearing"),
     ADD_LIST_FOR_INTERIM_HEARING_INFO("FR_addListForInterimHearingInfo"),
     UPLOAD_CONFIDENTIAL_DOCUMENT("FR_uploadConfidentialDocument"),
-    UPDATE_FRC_INFORMATION("FR_updateFRCInformation"),
+    UPDATE_Frc_INFORMATION("FR_updateFrcInformation"),
     MANAGE_HEARING_BUNDLES("FR_manageHearingBundles"),
     @JsonEnumDefaultValue
     NONE("");

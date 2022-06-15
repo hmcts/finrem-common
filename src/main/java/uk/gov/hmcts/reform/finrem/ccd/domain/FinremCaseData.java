@@ -1,17 +1,28 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import javax.print.Doc;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.ContactDetailsWrapper;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.DraftDirectionWrapper;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.GeneralApplicationWrapper;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.GeneralLetterWrapper;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.GeneralOrderWrapper;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.InterimWrapper;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.MiamWrapper;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.ReferToJudgeWrapper;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.RegionWrapper;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.UploadCaseDocumentWrapper;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -31,20 +42,6 @@ public class FinremCaseData {
     @JsonProperty(access = WRITE_ONLY)
     private String ccdCaseId;
 
-    private String isAdmin;
-    private YesOrNo applicantRepresented;
-    private Address applicantAddress;
-    private String applicantPhone;
-    private String applicantEmail;
-    private YesOrNo applicantAddressConfidential;
-    private String solicitorName;
-    private String solicitorFirm;
-    private String solicitorReference;
-    private Address solicitorAddress;
-    private String solicitorPhone;
-    private String solicitorEmail;
-    private String solicitorDxNumber;
-    private YesOrNo solicitorAgreeToReceiveEmails;
     private String divorceCaseNumber;
     private StageReached divorceStageReached;
     private Document divorceUploadEvidence1;
@@ -53,22 +50,6 @@ public class FinremCaseData {
     private Document divorceUploadEvidence2;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate divorceDecreeAbsoluteDate;
-    private String applicantFMName;
-    private String applicantLName;
-    private String appRespondentFMName;
-    private String appRespondentLName;
-    private YesOrNo appRespondentRep;
-    private String rSolicitorName;
-    private String rSolicitorFirm;
-    private String rSolicitorReference;
-    private Address rSolicitorAddress;
-    private String rSolicitorPhone;
-    private String rSolicitorEmail;
-    private String rSolicitorDXnumber;
-    private Address respondentAddress;
-    private String respondentPhone;
-    private String respondentEmail;
-    private YesOrNo respondentAddressConfidential;
     private Provision provisionMadeFor;
     private Intention applicantIntendsTo;
     private List<PeriodicalPaymentSubstitute> dischargePeriodicalPaymentSubstituteFor;
@@ -97,12 +78,12 @@ public class FinremCaseData {
     private Document d81Applicant;
     private Document d81Respondent;
     private List<PensionTypeCollection> pensionCollection;
+    private List<PensionTypeCollection> consentPensionCollection;
     private List<PaymentDocumentCollection> copyOfPaperFormA;
     @JsonProperty("otherCollection")
     private List<OtherDocumentCollection> otherDocumentsCollection;
-    private List<GeneralLetterCollection> generalLetterCollection;
     private YesOrNo helpWithFeesQuestion;
-    private String HWFNumber;
+    private String hwfNumber;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private BigDecimal amountToPay;
     private String pbaNumber;
@@ -128,77 +109,24 @@ public class FinremCaseData {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate issueDate;
     private AssignToJudgeReason assignedToJudgeReason;
-    //TODO: This should be a dynamic list type populated on the aboutToStart event but currently it is generated in Jenkins for finrem-ccd-definitions
     private String assignedToJudge;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate referToJudgeDate;
-    private String referToJudgeText;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate referToJudgeDateFromOrderMade;
-    private String referToJudgeTextFromOrderMade;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate referToJudgeDateFromConsOrdApproved;
-    private String referToJudgeTextFromConsOrdApproved;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate referToJudgeDateFromConsOrdMade;
-    private String referToJudgeTextFromConsOrdMade;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate referToJudgeDateFromClose;
-    private String referToJudgeTextFromClose;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate referToJudgeDateFromAwaitingResponse;
-    private String referToJudgeTextFromAwaitingResponse;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate referToJudgeDateFromRespondToOrder;
-    private String referToJudgeTextFromRespondToOrder;
     private List<UploadConsentOrderDocumentCollection> uploadConsentOrderDocuments;
     private List<UploadOrderCollection> uploadOrder;
     private List<UploadDocumentCollection> uploadDocuments;
     private List<SolUploadDocumentCollection> solUploadDocuments;
-    private List<GeneralOrderCollection> generalOrderCollection;
     private List<RespondToOrderDocumentCollection> respondToOrderDocuments;
     private List<AmendedConsentOrderCollection> amendedConsentOrderCollection;
     private List<CaseNotesCollection> caseNotesCollection;
     private String state;
     private List<ScannedDocumentCollection> scannedDocuments;
     private YesOrNo evidenceHandled;
-    private GeneralLetterAddressToType generalLetterAddressTo;
-    private String generalLetterRecipient;
-    private Address generalLetterRecipientAddress;
-    private String generalLetterCreatedBy;
-    private String generalLetterBody;
+
     private Document approvedConsentOrderLetter;
     private Document bulkPrintCoverSheetRes;
     private String bulkPrintLetterIdRes;
     private Document bulkPrintCoverSheetApp;
     private String bulkPrintLetterIdApp;
     private List<ApprovedOrderCollection> approvedOrderCollection;
-    private Region regionList;
-    private RegionMidlandsFrc midlandsFrcList;
-    private RegionLondonFrc londonFRCList;
-    private RegionNorthWestFrc northWestFrcList;
-    private RegionNorthEastFrc northEastFrcList;
-    private RegionSouthEastFrc southEastFrcList;
-    private RegionSouthWestFrc southWestFrcList;
-    private RegionWalesFrc walesFRCList;
-    private NottinghamCourt nottinghamCourtList;
-    private BirminghamCourt birminghamCourtList;
-    private LondonCourt londonCourtList;
-    private LiverpoolCourt liverpoolCourtList;
-    private ManchesterCourt manchesterCourtList;
-    private LancashireCourt lancashireCourtList;
-    private ClevelandCourt clevelandCourtList;
-    private NwYorkshireCourt nwYorkshireCourtList;
-    private HumberCourt humberCourtList;
-    private KentSurreyCourt kentSurreyCourtList;
-    private BedfordshireCourt bedfordshireCourtList;
-    private ThamesValleyCourt thamesValleyCourtList;
-    private DevonCourt devonCourtList;
-    private DorsetCourt dorsetCourtList;
-    private BristolCourt bristolCourtList;
-    private NewportCourt newportCourtList;
-    private SwanseaCourt swanseaCourtList;
-    private NorthWalesCourt northWalesCourtList;
     private ApplicantRole divRoleOfFrApplicant;
     private ApplicantRepresentedPaper applicantRepresentedPaper;
     private String authorisationSolicitorAddress;
@@ -212,35 +140,16 @@ public class FinremCaseData {
     private String generalEmailCreatedBy;
     private String generalEmailBody;
     private List<GeneralEmailCollection> generalEmailCollection;
-    private GeneralOrderAddressTo generalOrderAddressTo;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate generalOrderDate;
-    private String generalOrderCreatedBy;
-    private String generalOrderBodyText;
-    private GeneralOrderJudgeType generalOrderJudgeType;
-    private String generalOrderRecitals;
-    private String generalOrderJudgeName;
-    private Document generalOrderLatestDocument;
     private String transferLocalCourtName;
     private String transferLocalCourtEmail;
     private String transferLocalCourtInstructions;
     private List<TransferCourtEmailCollection> transferLocalCourtEmailCollection;
     private YesOrNo civilPartnership;
     private List<RepresentationUpdateHistoryCollection> representationUpdateHistory;
-    private NoticeOfChangeParty nocParty;
-    private YesOrNo updateIncludesRepresentativeChange;
-    private Document generalLetterPreview;
     private YesOrNo paperApplication;
     private Document bulkPrintCoverSheetAppConfidential;
     private Document bulkPrintCoverSheetResConfidential;
     private YesOrNo respSolNotificationsEmailConsent;
-    private String applicantSolicitorName;
-    private String applicantSolicitorFirm;
-    private Address applicantSolicitorAddress;
-    private String applicantSolicitorPhone;
-    private String applicantSolicitorEmail;
-    private String applicantSolicitorDXnumber;
-    private YesOrNo applicantSolicitorConsentForEmails;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dateOfMarriage;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
@@ -249,8 +158,6 @@ public class FinremCaseData {
     private Document divorceUploadPetition;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate divorcePetitionIssuedDate;
-    private String respondentLName;
-    private YesOrNo respondentRepresented;
     private List<NatureApplication> natureOfApplicationChecklist;
     private String propertyAddress;
     private String mortgageDetail;
@@ -273,14 +180,6 @@ public class FinremCaseData {
     private String specificArrangementsRequired;
     private YesOrNo isApplicantsHomeCourt;
     private String reasonForLocalCourt;
-    private YesOrNo applicantAttendedMiam;
-    private YesOrNo claimingExemptionMiam;
-    private YesOrNo familyMediatorMiam;
-    private List<MiamExemption> miamExemptionsChecklist;
-    private List<MiamDomesticViolence> miamDomesticViolenceChecklist;
-    private List<MiamUrgencyReason> miamUrgencyReasonChecklist;
-    private MiamPreviousAttendance miamPreviousAttendanceChecklist;
-    private MiamOtherGrounds miamOtherGroundsChecklist;
     private String mediatorRegistrationNumber;
     private String familyMediatorServiceName;
     private String soleTraderName;
@@ -288,7 +187,6 @@ public class FinremCaseData {
     private String familyMediatorServiceName1;
     private String soleTraderName1;
     private YesOrNo promptForAnyDocument;
-    private List<UploadAdditionalDocumentCollection> uploadAdditionalDocument;
     private List<AdditionalHearingDocumentCollection> additionalHearingDocuments;
     private HearingTypeDirection hearingType;
     private String timeEstimate;
@@ -303,10 +201,7 @@ public class FinremCaseData {
     private String judgeTimeEstimateTextArea;
     private Document formC;
     private Document formG;
-    private List<UploadCaseDocumentCollection> uploadCaseDocument;
     private List<UploadGeneralDocumentCollection> uploadGeneralDocuments;
-    private List<UploadConsentOrderCollection> uploadConsentOrder;
-    private Document uploadConsentedOrder;
     private AssignToJudgeReason assignToJudgeReason;
     private String assignToJudgeText;
     private YesOrNo subjectToDecreeAbsoluteValue;
@@ -314,133 +209,67 @@ public class FinremCaseData {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dateOfOrder;
     private String additionalComments;
-    private List<ContestedGeneralOrderCollection> generalOrders;
-    private List<ContestedGeneralOrderCollection> generalOrdersConsent;
     private List<ApplicationNotApprovedCollection> applicationNotApproved;
     private String attendingCourtWithAssistance;
     private String attendingCourtWithArrangement;
     private SolicitorToDraftOrder solicitorResponsibleForDraftingOrder;
-    private List<DraftDirectionOrderCollection> draftDirectionOrderCollection;
-    private DraftDirectionOrder latestDraftDirectionOrder;
-    private List<DraftDirectionOrderCollection> judgesAmendedOrderCollection;
-    private List<DraftDirectionDetailsCollection> draftDirectionDetailsCollection;
-    private List<DraftDirectionDetailsCollection> draftDirectionDetailsCollectionRO;
     private List<DirectionOrderCollection> uploadHearingOrder;
     private List<DocumentCollection> hearingOrderOtherDocuments;
     private List<DirectionDetailCollection> directionDetailsCollection;
+    private List<DirectionOrderCollection> finalOrderCollection;
+    private List<JudgeNotApprovedReasonsCollection> judgeNotApprovedReasons;
     private RefusalOrderJudgeType refusalOrderJudgeType;
     private String refusalOrderJudgeName;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate refusalOrderDate;
     private Document refusalOrderPreviewDocument;
+    private List<RefusalOrderCollection> refusalOrderCollection;
     private Document latestRefusalOrder;
     private Document refusalOrderAdditionalDocument;
     private String hiddenTabValue;
-    private ClevelandCourt  cleavelandCourtList;
-    private String consentNatureOfApplicationAddress;
-    private String consentNatureOfApplicationMortgage;
-    private YesOrNo consentOrderForChildrenQuestion1;
-    private YesOrNo consentNatureOfApplication5;
-    private String consentNatureOfApplication7;
-    private YesOrNo consentD81Question;
-    private Document consentD81Joint;
-    private Document consentD81Applicant;
-    private Document consentD81Respondent;
-    private String consentOrderFRCName;
-    private Address consentOrderFRCAddress;
-    private String consentOrderFRCEmail;
-    private String consentOrderFRCPhone;
-    private YesOrNo consentSubjectToDecreeAbsoluteValue;
-    private YesOrNo consentServePensionProvider;
-    private String consentServePensionProviderOther;
-    private String consentSelectJudge;
-    private String consentJudgeName;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate consentDateOfOrder;
-    private String consentAdditionalComments;
-    private Document consentMiniFormA;
-    private String generalApplicationCreatedBy;
-    private YesOrNo generalApplicationHearingRequired;
-    private String generalApplicationTimeEstimate;
-    private String generalApplicationSpecialMeasures;
-    private Document generalApplicationDocument;
-    private Document generalApplicationLatestDocument;
-    private Document generalApplicationDraftOrder;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate generalApplicationLatestDocumentDate;
-    private String generalApplicationPreState;
-    private String generalApplicationReferToJudgeEmail;
-    private String generalApplicationOutcomeOther;
-    private YesOrNo generalApplicationDirectionsHearingRequired;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate generalApplicationDirectionsHearingDate;
-    private String generalApplicationDirectionsHearingTime;
-    private String generalApplicationDirectionsHearingTimeEstimate;
-    private String generalApplicationDirectionsAdditionalInformation;
-    private String generalApplicationDirectionsRecitals;
-    private String generalApplicationDirectionsJudgeName;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate generalApplicationDirectionsCourtOrderDate;
-    private String generalApplicationDirectionsTextFromJudge;
-    private Document generalApplicationDirectionsDocument;
-    private String generalApplicationNotApprovedReason;
+    private ClevelandCourt cleavelandCourtList;
     private Document latestDraftHearingOrder;
     private String orderApprovedJudgeName;
+    private RefusalOrderJudgeType orderApprovedJudgeType;
+    private List<UploadAdditionalDocumentCollection> uploadAdditionalDocument;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate orderApprovedDate;
     private Document orderApprovedCoverLetter;
     private String hearingDetails;
-    private List<UploadAdditionalDocumentCollection> appHearingBundlesCollection;
-    private List<UploadAdditionalDocumentCollection> appFormEExhibitsCollection;
-    private List<UploadAdditionalDocumentCollection> appChronologiesCollection;
-    private List<UploadAdditionalDocumentCollection> appQACollection;
-    private List<UploadAdditionalDocumentCollection> appStatementsExhibitsCollection;
-    private List<UploadAdditionalDocumentCollection> appCaseSummariesCollection;
-    private List<UploadAdditionalDocumentCollection> appFormsHCollection;
-    private List<UploadAdditionalDocumentCollection> appExpertEvidenceCollection;
-    private List<UploadAdditionalDocumentCollection> appCorrespondenceDocsCollection;
-    private List<UploadAdditionalDocumentCollection> appOtherCollection;
-    private List<UploadAdditionalDocumentCollection> respHearingBundlesCollection;
-    private List<UploadAdditionalDocumentCollection> respFormEExhibitsCollection;
-    private List<UploadAdditionalDocumentCollection> respChronologiesCollection;
-    private List<UploadAdditionalDocumentCollection> respQACollection;
-    private List<UploadAdditionalDocumentCollection> respStatementsExhibitsCollection;
-    private List<UploadAdditionalDocumentCollection> respCaseSummariesCollection;
-    private List<UploadAdditionalDocumentCollection> respFormsHCollection;
-    private List<UploadAdditionalDocumentCollection> respExpertEvidenceCollection;
-    private List<UploadAdditionalDocumentCollection> respCorrespondenceDocsColl;
-    private List<UploadAdditionalDocumentCollection> respOtherCollection;
     private YesOrNo applicantShareDocs;
     private YesOrNo respondentShareDocs;
-    private List<UploadAdditionalDocumentCollection> appHearingBundlesCollectionShared;
-    private List<UploadAdditionalDocumentCollection> appFormEExhibitsCollectionShared;
-    private List<UploadAdditionalDocumentCollection> appChronologiesCollectionShared;
-    private List<UploadAdditionalDocumentCollection> appQACollectionShared;
-    private List<UploadAdditionalDocumentCollection> appStatementsExhibitsCollShared;
-    private List<UploadAdditionalDocumentCollection> appCaseSummariesCollectionShared;
-    private List<UploadAdditionalDocumentCollection> appFormsHCollectionShared;
-    private List<UploadAdditionalDocumentCollection> appExpertEvidenceCollectionShared;
-    private List<UploadAdditionalDocumentCollection> appCorrespondenceDocsCollShared;
-    private List<UploadAdditionalDocumentCollection> appOtherCollectionShared;
-    private List<UploadAdditionalDocumentCollection> respHearingBundlesCollShared;
-    private List<UploadAdditionalDocumentCollection> respFormEExhibitsCollectionShared;
-    private List<UploadAdditionalDocumentCollection> respChronologiesCollectionShared;
-    private List<UploadAdditionalDocumentCollection> respQACollectionShared;
-    private List<UploadAdditionalDocumentCollection> respStatementsExhibitsCollShared;
-    private List<UploadAdditionalDocumentCollection> respCaseSummariesCollectionShared;
-    private List<UploadAdditionalDocumentCollection> respFormsHCollectionShared;
-    private List<UploadAdditionalDocumentCollection> respExpertEvidenceCollShared;
-    private List<UploadAdditionalDocumentCollection> respCorrespondenceDocsCollShared;
-    private List<UploadAdditionalDocumentCollection> respOtherCollectionShared;
-    private String reasonForFRCLocation;
-    private String interimTimeEstimate;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate interimHearingDate;
-    private String interimHearingTime;
-    private String interimAdditionalInformationAboutHearing;
-    private YesOrNo interimPromptForAnyDocument;
-    private Document interimUploadAdditionalDocument;
-    private Document interimHearingDirectionsDocument;
+    private String reasonForFrcLocation;
     private List<HearingUploadBundleCollection> hearingUploadBundle;
     private SendOrderEventPostStateOption sendOrderPostStateOption;
+    private List<UploadConfidentialDocumentCollection> confidentialDocumentsUploaded;
+    @JsonUnwrapped
+    @Getter(AccessLevel.NONE)
+    private RegionWrapper regionWrapper;
+    @JsonUnwrapped
+    @Getter(AccessLevel.NONE)
+    private ReferToJudgeWrapper referToJudgeWrapper;
+    @JsonUnwrapped
+    @Getter(AccessLevel.NONE)
+    private UploadCaseDocumentWrapper uploadCaseDocumentWrapper;
+    @JsonUnwrapped
+    @Getter(AccessLevel.NONE)
+    private ContactDetailsWrapper contactDetailsWrapper;
+    @JsonUnwrapped
+    @Getter(AccessLevel.NONE)
+    private GeneralApplicationWrapper generalApplicationWrapper;
+    @JsonUnwrapped
+    @Getter(AccessLevel.NONE)
+    private GeneralOrderWrapper generalOrderWrapper;
+    @JsonUnwrapped
+    @Getter(AccessLevel.NONE)
+    private InterimWrapper interimWrapper;
+    @JsonUnwrapped
+    @Getter(AccessLevel.NONE)
+    private DraftDirectionWrapper draftDirectionWrapper;
+    @JsonUnwrapped
+    @Getter(AccessLevel.NONE)
+    private GeneralLetterWrapper generalLetterWrapper;
+    @JsonUnwrapped
+    @Getter(AccessLevel.NONE)
+    private MiamWrapper miamWrapper;
 }

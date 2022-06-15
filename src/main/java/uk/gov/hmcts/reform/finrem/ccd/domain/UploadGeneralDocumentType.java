@@ -1,10 +1,10 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import java.util.Arrays;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
+
+import java.util.Arrays;
 
 @RequiredArgsConstructor
 public enum UploadGeneralDocumentType {
