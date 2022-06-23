@@ -1,6 +1,7 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -272,4 +273,84 @@ public class FinremCaseData {
     @JsonUnwrapped
     @Getter(AccessLevel.NONE)
     private MiamWrapper miamWrapper;
+
+    @JsonIgnore
+    public MiamWrapper getMiamWrapper() {
+        if (miamWrapper == null) {
+            this.miamWrapper = new MiamWrapper();
+        }
+        return miamWrapper;
+    }
+
+    @JsonIgnore
+    public GeneralLetterWrapper getGeneralLetterWrapper() {
+        if (generalLetterWrapper == null) {
+            this.generalLetterWrapper = new GeneralLetterWrapper();
+        }
+        return generalLetterWrapper;
+    }
+
+    @JsonIgnore
+    public DraftDirectionWrapper getDraftDirectionWrapper() {
+        if (draftDirectionWrapper == null) {
+            this.draftDirectionWrapper = new DraftDirectionWrapper();
+        }
+        return draftDirectionWrapper;
+    }
+
+    @JsonIgnore
+    public InterimWrapper getInterimWrapper() {
+        if (interimWrapper == null) {
+            this.interimWrapper = new InterimWrapper();
+        }
+        return interimWrapper;
+    }
+
+    @JsonIgnore
+    public GeneralOrderWrapper getGeneralOrderWrapper() {
+        if (generalOrderWrapper == null) {
+            this.generalOrderWrapper = new GeneralOrderWrapper();
+        }
+        return generalOrderWrapper;
+    }
+
+    @JsonIgnore
+    public GeneralApplicationWrapper getGeneralApplicationWrapper() {
+        if (generalApplicationWrapper == null) {
+            this.generalApplicationWrapper = new GeneralApplicationWrapper();
+        }
+        return generalApplicationWrapper;
+    }
+
+    @JsonIgnore
+    public ContactDetailsWrapper getContactDetailsWrapper() {
+        if (contactDetailsWrapper == null) {
+            this.contactDetailsWrapper = new ContactDetailsWrapper();
+        }
+        return contactDetailsWrapper;
+    }
+
+    @JsonIgnore
+    public UploadCaseDocumentWrapper getUploadCaseDocumentWrapper() {
+        if (uploadCaseDocumentWrapper == null) {
+            this.uploadCaseDocumentWrapper = new UploadCaseDocumentWrapper();
+        }
+        return uploadCaseDocumentWrapper;
+    }
+
+    @JsonIgnore
+    public RegionWrapper getWrapperClass() {
+        if (regionWrapper == null) {
+            this.regionWrapper = new RegionWrapper();
+        }
+        return regionWrapper;
+    }
+
+    @JsonIgnore
+    public ReferToJudgeWrapper getReferToJudgeWrapper() {
+        if (referToJudgeWrapper == null) {
+            this.referToJudgeWrapper = new ReferToJudgeWrapper();
+        }
+        return referToJudgeWrapper;
+    }
 }
