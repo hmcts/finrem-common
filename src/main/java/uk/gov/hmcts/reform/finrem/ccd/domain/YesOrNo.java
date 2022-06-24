@@ -13,19 +13,15 @@ public enum YesOrNo {
     YES("Yes"),
     NO("No");
 
-    private final String yesOrNo;
+    private final String value;
 
     @JsonValue
     public String getYesOrNo() {
-        return yesOrNo;
+        return value;
     }
 
     public boolean isYes() {
-        return yesOrNo.equalsIgnoreCase("Yes");
-    }
-
-    public boolean isNoOrNull() {
-        return isNull(yesOrNo) || yesOrNo.equalsIgnoreCase("No");
+        return value.equalsIgnoreCase("Yes");
     }
 
     public static boolean isYes(YesOrNo yesOrNo) {
@@ -44,4 +40,7 @@ public enum YesOrNo {
         return isNull(yesOrNo) || NO.toString().equalsIgnoreCase(yesOrNo);
     }
 
+    public boolean isNoOrNull() {
+        return isNull(value) || value.equalsIgnoreCase("No");
+    }
 }
