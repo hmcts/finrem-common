@@ -339,7 +339,7 @@ public class FinremCaseData {
     }
 
     @JsonIgnore
-    public RegionWrapper getWrapperClass() {
+    public RegionWrapper getRegionWrapper() {
         if (regionWrapper == null) {
             this.regionWrapper = new RegionWrapper();
         }
