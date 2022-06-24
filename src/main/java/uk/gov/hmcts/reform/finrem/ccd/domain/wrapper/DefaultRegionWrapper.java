@@ -40,7 +40,7 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.ThamesValleyCourt;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DefaultRegionWrapper {
+public class DefaultRegionWrapper implements CourtDetailsWrapper {
     private Region regionList;
     private RegionMidlandsFrc midlandsFrcList;
     private RegionLondonFrc londonFrcList;
