@@ -28,7 +28,7 @@ public enum NwYorkshireCourt {
     }
 
     @JsonCreator
-    public static NwYorkshireCourt getNWYorkshireCourt(String ccdType) {
+    public static NwYorkshireCourt getNwYorkshireCourt(String ccdType) {
         return Arrays.stream(NwYorkshireCourt.values())
             .filter(option -> option.id.equals(ccdType))
             .findFirst().orElseThrow(IllegalArgumentException::new);

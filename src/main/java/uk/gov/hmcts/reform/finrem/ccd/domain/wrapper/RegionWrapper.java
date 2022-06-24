@@ -10,33 +10,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import uk.gov.hmcts.reform.finrem.ccd.domain.BedfordshireCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.BirminghamCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.BristolCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.CfcCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.CleavelandCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.DevonCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.DorsetCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.HumberCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.KentSurreyCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.LancashireCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.LiverpoolCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.LondonCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.ManchesterCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.NewportCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.NorthWalesCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.NottinghamCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.NwYorkshireCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.Region;
-import uk.gov.hmcts.reform.finrem.ccd.domain.RegionLondonFrc;
-import uk.gov.hmcts.reform.finrem.ccd.domain.RegionMidlandsFrc;
-import uk.gov.hmcts.reform.finrem.ccd.domain.RegionNorthEastFrc;
-import uk.gov.hmcts.reform.finrem.ccd.domain.RegionNorthWestFrc;
-import uk.gov.hmcts.reform.finrem.ccd.domain.RegionSouthEastFrc;
-import uk.gov.hmcts.reform.finrem.ccd.domain.RegionSouthWestFrc;
-import uk.gov.hmcts.reform.finrem.ccd.domain.RegionWalesFrc;
-import uk.gov.hmcts.reform.finrem.ccd.domain.SwanseaCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.ThamesValleyCourt;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data

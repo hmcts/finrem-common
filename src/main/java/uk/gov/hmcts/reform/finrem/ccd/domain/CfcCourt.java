@@ -32,7 +32,7 @@ public enum CfcCourt {
     }
 
     @JsonCreator
-    public static CfcCourt getCFCCourt(String ccdType) {
+    public static CfcCourt getCfcCourt(String ccdType) {
         return Arrays.stream(CfcCourt.values())
             .filter(option -> option.id.equals(ccdType))
             .findFirst().orElseThrow(IllegalArgumentException::new);
