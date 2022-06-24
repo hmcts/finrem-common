@@ -6,12 +6,14 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class DraftDirectionDetails {
     private YesOrNo isThisFinalYN;
     private YesOrNo isAnotherHearingYN;
