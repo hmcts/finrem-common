@@ -10,12 +10,15 @@ import java.util.Arrays;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
-public enum HumberCourt {
-    FR_humberList_1("FR_humber_hc_list_1"),
-    FR_humberList_2("FR_humber_hc_list_2"),
-    FR_humberList_3("FR_humber_hc_list_3"),
-    FR_humberList_4("FR_humber_hc_list_4"),
-    FR_humberList_5("FR_humber_hc_list_5");
+public enum CleavelandCourt {
+    FR_CLEVELAND_LIST_1("FR_cleaveland_hc_list_1"),
+    FR_CLEVELAND_LIST_2("FR_cleaveland_hc_list_2"),
+    FR_CLEVELAND_LIST_3("FR_cleaveland_hc_list_3"),
+    FR_CLEVELAND_LIST_4("FR_cleaveland_hc_list_4"),
+    FR_CLEVELAND_LIST_5("FR_cleaveland_hc_list_5"),
+    FR_CLEVELAND_LIST_6("FR_cleaveland_hc_list_6"),
+    FR_CLEVELAND_LIST_7("FR_cleaveland_hc_list_7"),
+    FR_CLEVELAND_LIST_8("FR_cleaveland_hc_list_8");
 
     private final String id;
 
@@ -25,8 +28,8 @@ public enum HumberCourt {
     }
 
     @JsonCreator
-    public static HumberCourt getHumberCourt(String ccdType) {
-        return Arrays.stream(HumberCourt.values())
+    public static CleavelandCourt getCleavelandCourt(String ccdType) {
+        return Arrays.stream(CleavelandCourt.values())
             .filter(option -> option.id.equals(ccdType))
             .findFirst().orElseThrow(IllegalArgumentException::new);
     }

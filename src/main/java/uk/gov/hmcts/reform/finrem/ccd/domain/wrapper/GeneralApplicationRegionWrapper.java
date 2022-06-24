@@ -2,12 +2,9 @@ package uk.gov.hmcts.reform.finrem.ccd.domain.wrapper;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import uk.gov.hmcts.reform.finrem.ccd.domain.BedfordshireCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.BirminghamCourt;
@@ -20,7 +17,6 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.HumberCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.KentSurreyCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.LancashireCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.LiverpoolCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.LondonCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.ManchesterCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.NewportCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.NorthWalesCourt;
@@ -43,14 +39,31 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.ThamesValleyCourt;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class RegionWrapper {
-    @JsonUnwrapped
-    @Getter(AccessLevel.NONE)
-    DefaultRegionWrapper defaultRegionWrapper;
-    @JsonUnwrapped
-    @Getter(AccessLevel.NONE)
-    InterimRegionWrapper interimRegionWrapper;
-    @JsonUnwrapped
-    @Getter(AccessLevel.NONE)
-    GeneralApplicationRegionWrapper generalApplicationRegionWrapper;
+public class GeneralApplicationRegionWrapper {
+    private Region generalApplicationDirectionsRegionList;
+    private RegionMidlandsFrc generalApplicationDirectionsMidlandsFrcList;
+    private RegionLondonFrc generalApplicationDirectionsLondonFrcList;
+    private RegionNorthWestFrc generalApplicationDirectionsNorthWestFrcList;
+    private RegionNorthEastFrc generalApplicationDirectionsNorthEastFrcList;
+    private RegionSouthEastFrc generalApplicationDirectionsSouthEastFrcList;
+    private RegionSouthWestFrc generalApplicationDirectionsSouthWestFrcList;
+    private RegionWalesFrc generalApplicationDirectionsWalesFrcList;
+    private NottinghamCourt generalApplicationDirectionsNottinghamCourtList;
+    private CfcCourt generalApplicationDirectionsCfcCourtList;
+    private BirminghamCourt generalApplicationDirectionsBirminghamCourtList;
+    private LiverpoolCourt generalApplicationDirectionsLiverpoolCourtList;
+    private ManchesterCourt generalApplicationDirectionsManchesterCourtList;
+    private LancashireCourt generalApplicationDirectionsLancashireCourtList;
+    private CleavelandCourt generalApplicationDirectionsCleavelandCourtList;
+    private NwYorkshireCourt generalApplicationDirectionsNwYorkshireCourtList;
+    private HumberCourt generalApplicationDirectionsHumberCourtList;
+    private KentSurreyCourt generalApplicationDirectionsKentSurreyCourtList;
+    private BedfordshireCourt generalApplicationDirectionsBedfordshireCourtList;
+    private ThamesValleyCourt generalApplicationDirectionsThamesValleyCourtList;
+    private DevonCourt generalApplicationDirectionsDevonCourtList;
+    private DorsetCourt generalApplicationDirectionsDorsetCourtList;
+    private BristolCourt generalApplicationDirectionsBristolCourtList;
+    private NewportCourt generalApplicationDirectionsNewportCourtList;
+    private SwanseaCourt generalApplicationDirectionsSwanseaCourtList;
+    private NorthWalesCourt generalApplicationDirectionsNorthWalesCourtList;
 }

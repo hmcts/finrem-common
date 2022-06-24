@@ -2,12 +2,9 @@ package uk.gov.hmcts.reform.finrem.ccd.domain.wrapper;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import uk.gov.hmcts.reform.finrem.ccd.domain.BedfordshireCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.BirminghamCourt;
@@ -43,14 +40,32 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.ThamesValleyCourt;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class RegionWrapper {
-    @JsonUnwrapped
-    @Getter(AccessLevel.NONE)
-    DefaultRegionWrapper defaultRegionWrapper;
-    @JsonUnwrapped
-    @Getter(AccessLevel.NONE)
-    InterimRegionWrapper interimRegionWrapper;
-    @JsonUnwrapped
-    @Getter(AccessLevel.NONE)
-    GeneralApplicationRegionWrapper generalApplicationRegionWrapper;
+public class DefaultRegionWrapper {
+    private Region regionList;
+    private RegionMidlandsFrc midlandsFrcList;
+    private RegionLondonFrc londonFrcList;
+    private RegionNorthWestFrc northWestFrcList;
+    private RegionNorthEastFrc northEastFrcList;
+    private RegionSouthEastFrc southEastFrcList;
+    private RegionSouthWestFrc southWestFrcList;
+    private RegionWalesFrc walesFrcList;
+    private NottinghamCourt nottinghamCourtList;
+    private BirminghamCourt birminghamCourtList;
+    private LondonCourt londonCourtList;
+    private LiverpoolCourt liverpoolCourtList;
+    private ManchesterCourt manchesterCourtList;
+    private LancashireCourt lancashireCourtList;
+    private CfcCourt cfcCourtList;
+    private CleavelandCourt cleavelandCourtList;
+    private NwYorkshireCourt nwYorkshireCourtList;
+    private HumberCourt humberCourtList;
+    private KentSurreyCourt kentSurreyCourtList;
+    private BedfordshireCourt bedfordshireCourtList;
+    private ThamesValleyCourt thamesValleyCourtList;
+    private DevonCourt devonCourtList;
+    private DorsetCourt dorsetCourtList;
+    private BristolCourt bristolCourtList;
+    private NewportCourt newportCourtList;
+    private SwanseaCourt swanseaCourtList;
+    private NorthWalesCourt northWalesCourtList;
 }

@@ -228,7 +228,7 @@ public class FinremCaseData {
     private Document latestRefusalOrder;
     private Document refusalOrderAdditionalDocument;
     private String hiddenTabValue;
-    private ClevelandCourt cleavelandCourtList;
+    private CleavelandCourt cleavelandCourtList;
     private Document latestDraftHearingOrder;
     private String orderApprovedJudgeName;
     private RefusalOrderJudgeType orderApprovedJudgeType;

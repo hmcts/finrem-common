@@ -29,7 +29,7 @@ public class Court {
     private LiverpoolCourt liverpoolCourtList;
     private ManchesterCourt manchesterCourtList;
     private LancashireCourt lancashireCourtList;
-    private ClevelandCourt cleavelandCourtList;
+    private CleavelandCourt cleavelandCourtList;
     private NwYorkshireCourt nwyorkshireCourtList;
     private HumberCourt humberCourtList;
     private KentSurreyCourt kentSurreyCourtList;
