@@ -1,12 +1,18 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.CourtListWrapper;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.DefaultCourtListWrapper;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -14,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Court {
+public class Court implements CourtListWrapper {
     private Region region;
     private RegionMidlandsFrc midlandsList;
     private RegionLondonFrc londonList;
@@ -23,22 +29,15 @@ public class Court {
     private RegionSouthEastFrc southEastList;
     private RegionSouthWestFrc southWestList;
     private RegionWalesFrc walesList;
-    private NottinghamCourt nottinghamCourtList;
-    private CfcCourt cfcCourtList;
-    private BirminghamCourt birminghamCourtList;
-    private LiverpoolCourt liverpoolCourtList;
-    private ManchesterCourt manchesterCourtList;
-    private LancashireCourt lancashireCourtList;
-    private CleavelandCourt cleavelandCourtList;
-    private NwYorkshireCourt nwyorkshireCourtList;
-    private HumberCourt humberCourtList;
-    private KentSurreyCourt kentSurreyCourtList;
-    private BedfordshireCourt bedfordshireCourtList;
-    private ThamesValleyCourt thamesvalleyCourtList;
-    private DevonCourt devonCourtList;
-    private DorsetCourt dorsetCourtList;
-    private BristolCourt bristolCourtList;
-    private NewportCourt newportCourtList;
-    private SwanseaCourt swanseaCourtList;
-    private NorthWalesCourt northWalesCourtList;
+    @JsonUnwrapped
+    @Getter(AccessLevel.NONE)
+    DefaultCourtListWrapper courtListWrapper;
+
+    @JsonIgnore
+    public DefaultCourtListWrapper getDefaultCourtListWrapper() {
+        if (courtListWrapper == null) {
+            this.courtListWrapper = new DefaultCourtListWrapper();
+        }
+        return courtListWrapper;
+    }
 }

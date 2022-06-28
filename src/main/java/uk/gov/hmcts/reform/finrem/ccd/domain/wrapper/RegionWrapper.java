@@ -51,4 +51,33 @@ public class RegionWrapper {
         }
         return generalApplicationRegionWrapper;
     }
+
+    @JsonIgnore
+    public DefaultCourtListWrapper getDefaultCourtList() {
+        if (defaultRegionWrapper == null) {
+            this.defaultRegionWrapper = new DefaultRegionWrapper();
+            this.defaultRegionWrapper.setCourtListWrapper(new DefaultCourtListWrapper());
+        }
+        return defaultRegionWrapper.getDefaultCourtListWrapper();
+    }
+
+    @JsonIgnore
+    public InterimCourtListWrapper getInterimCourtList() {
+        if (interimRegionWrapper == null) {
+            this.interimRegionWrapper = new InterimRegionWrapper();
+            this.interimRegionWrapper.setCourtListWrapper(new InterimCourtListWrapper());
+        }
+
+        return interimRegionWrapper.getCourtListWrapper();
+    }
+
+    @JsonIgnore
+    public GeneralApplicationCourtListWrapper getGeneralApplicationCourtList() {
+        if (this.generalApplicationRegionWrapper == null) {
+            this.generalApplicationRegionWrapper = new GeneralApplicationRegionWrapper();
+            this.generalApplicationRegionWrapper.setCourtListWrapper(new GeneralApplicationCourtListWrapper());
+        }
+
+        return generalApplicationRegionWrapper.getCourtListWrapper();
+    }
 }
