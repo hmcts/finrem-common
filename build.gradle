@@ -31,6 +31,7 @@ repositories {
 
 dependencies {
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: versions.lombok
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
 
     implementation group: 'com.github.hmcts', name: 'java-logging', version: versions.hmctsLogging
     implementation group: 'com.github.hmcts', name: 'ccd-client', version: versions.hmctsCcdClient
