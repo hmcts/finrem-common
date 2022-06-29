@@ -11,7 +11,7 @@ import java.util.Arrays;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
 public enum RegionLondonFrc {
-    LONDON("london");
+    LONDON("cfc");
 
     private final String value;
 
