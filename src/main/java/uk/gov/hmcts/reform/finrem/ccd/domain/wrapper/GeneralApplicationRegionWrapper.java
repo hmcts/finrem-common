@@ -3,6 +3,7 @@ package uk.gov.hmcts.reform.finrem.ccd.domain.wrapper;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -26,13 +27,21 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.RegionWalesFrc;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class GeneralApplicationRegionWrapper {
+    @JsonProperty("generalApplicationDirections_regionList")
     private Region generalApplicationDirectionsRegionList;
+    @JsonProperty("generalApplicationDirections_midlandsFRCList")
     private RegionMidlandsFrc generalApplicationDirectionsMidlandsFrcList;
+    @JsonProperty("generalApplicationDirections_londonFRCList")
     private RegionLondonFrc generalApplicationDirectionsLondonFrcList;
+    @JsonProperty("generalApplicationDirections_northWestFRCList")
     private RegionNorthWestFrc generalApplicationDirectionsNorthWestFrcList;
+    @JsonProperty("generalApplicationDirections_northEastFRCList")
     private RegionNorthEastFrc generalApplicationDirectionsNorthEastFrcList;
+    @JsonProperty("generalApplicationDirections_southEastFRCList")
     private RegionSouthEastFrc generalApplicationDirectionsSouthEastFrcList;
+    @JsonProperty("generalApplicationDirections_southWestFRCList")
     private RegionSouthWestFrc generalApplicationDirectionsSouthWestFrcList;
+    @JsonProperty("generalApplicationDirections_walesFRCList")
     private RegionWalesFrc generalApplicationDirectionsWalesFrcList;
     @JsonUnwrapped
     @Getter(AccessLevel.NONE)
