@@ -11,7 +11,7 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.ContestedGeneralOrderCollection;
 import uk.gov.hmcts.reform.finrem.ccd.domain.Document;
 import uk.gov.hmcts.reform.finrem.ccd.domain.GeneralOrderAddressTo;
 import uk.gov.hmcts.reform.finrem.ccd.domain.GeneralOrderCollection;
-import uk.gov.hmcts.reform.finrem.ccd.domain.GeneralOrderJudgeType;
+import uk.gov.hmcts.reform.finrem.ccd.domain.JudgeType;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -28,7 +28,7 @@ public class GeneralOrderWrapper {
     private LocalDate generalOrderDate;
     private String generalOrderCreatedBy;
     private String generalOrderBodyText;
-    private GeneralOrderJudgeType generalOrderJudgeType;
+    private JudgeType judgeType;
     private String generalOrderRecitals;
     private String generalOrderJudgeName;
     private Document generalOrderLatestDocument;

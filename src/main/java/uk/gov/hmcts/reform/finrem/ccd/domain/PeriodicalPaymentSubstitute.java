@@ -1,12 +1,32 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import lombok.RequiredArgsConstructor;
+
+import java.util.Arrays;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@RequiredArgsConstructor
 public enum PeriodicalPaymentSubstitute {
-    LUMP_SUM_ORDER,
-    PROPERTY_ADJUSTMENT_ORDER,
-    PENSION_SHARING_ORDER,
-    PENSION_COMPENSATION_SHARING_ORDER
+    LUMP_SUM_ORDER("lumpSumOrder"),
+    PROPERTY_ADJUSTMENT_ORDER("propertyAdjustmentOrder"),
+    PENSION_SHARING_ORDER("pensionSharingOrder"),
+    PENSION_COMPENSATION_SHARING_ORDER("pensionCompensationSharingOrder");
+
+    private final String value;
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @JsonCreator
+    public static PeriodicalPaymentSubstitute forValue(String value) {
+        return Arrays.stream(PeriodicalPaymentSubstitute.values())
+            .filter(option -> value.equalsIgnoreCase(option.getValue()))
+            .findFirst().orElseThrow(IllegalArgumentException::new);
+    }
 }

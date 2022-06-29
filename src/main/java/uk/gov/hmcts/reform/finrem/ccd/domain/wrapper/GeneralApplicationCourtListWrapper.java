@@ -10,7 +10,7 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.BedfordshireCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.BirminghamCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.BristolCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.CfcCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.CleavelandCourt;
+import uk.gov.hmcts.reform.finrem.ccd.domain.ClevelandCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.DevonCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.DorsetCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.HumberCourt;
@@ -38,7 +38,7 @@ public class GeneralApplicationCourtListWrapper implements CourtListWrapper {
     private LiverpoolCourt generalApplicationDirectionsLiverpoolCourtList;
     private ManchesterCourt generalApplicationDirectionsManchesterCourtList;
     private LancashireCourt generalApplicationDirectionsLancashireCourtList;
-    private CleavelandCourt generalApplicationDirectionsCleavelandCourtList;
+    private ClevelandCourt generalApplicationDirectionsCleavelandCourtList;
     private NwYorkshireCourt generalApplicationDirectionsNwYorkshireCourtList;
     private HumberCourt generalApplicationDirectionsHumberCourtList;
     private KentSurreyCourt generalApplicationDirectionsKentSurreyCourtList;

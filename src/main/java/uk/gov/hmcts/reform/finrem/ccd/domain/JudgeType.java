@@ -10,10 +10,12 @@ import java.util.Arrays;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
-public enum SendOrderEventPostStateOption {
-    PREPARE_FOR_HEARING("prepareForHearing"),
-    CLOSE("close"),
-    ORDER_SENT("orderSent");
+public enum JudgeType {
+    DISTRICT_JUDGE("District Judge"),
+    DEPUTY_DISTRICT_JUDGE("Deputy District Judge"),
+    HIS_HONOUR_JUDGE("His Honour Judge"),
+    HER_HONOUR_JUDGE("Her Honour Judge"),
+    RECORDER("Recorder");
 
     private final String value;
 
@@ -23,8 +25,8 @@ public enum SendOrderEventPostStateOption {
     }
 
     @JsonCreator
-    public static SendOrderEventPostStateOption forValue(String value) {
-        return Arrays.stream(SendOrderEventPostStateOption.values())
+    public static JudgeType forValue(String value) {
+        return Arrays.stream(JudgeType.values())
             .filter(option -> value.equalsIgnoreCase(option.getValue()))
             .findFirst().orElseThrow(IllegalArgumentException::new);
     }

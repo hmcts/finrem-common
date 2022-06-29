@@ -10,7 +10,7 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.BedfordshireCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.BirminghamCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.BristolCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.CfcCourt;
-import uk.gov.hmcts.reform.finrem.ccd.domain.CleavelandCourt;
+import uk.gov.hmcts.reform.finrem.ccd.domain.ClevelandCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.DevonCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.DorsetCourt;
 import uk.gov.hmcts.reform.finrem.ccd.domain.HumberCourt;
@@ -41,7 +41,8 @@ public class DefaultCourtListWrapper implements CourtListWrapper {
     private LiverpoolCourt liverpoolCourtList;
     private ManchesterCourt manchesterCourtList;
     private LancashireCourt lancashireCourtList;
-    private CleavelandCourt cleavelandCourtList;
+    private ClevelandCourt cleavelandCourtList;
+    private ClevelandCourt clevelandCourtList;
     private NwYorkshireCourt nwYorkshireCourtList;
     private HumberCourt humberCourtList;
     private KentSurreyCourt kentSurreyCourtList;

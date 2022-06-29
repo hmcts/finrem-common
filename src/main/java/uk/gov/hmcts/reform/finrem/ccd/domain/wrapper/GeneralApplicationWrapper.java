@@ -11,7 +11,7 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.Document;
 import uk.gov.hmcts.reform.finrem.ccd.domain.EvidenceParty;
 import uk.gov.hmcts.reform.finrem.ccd.domain.GeneralApplicationCollection;
 import uk.gov.hmcts.reform.finrem.ccd.domain.GeneralApplicationOutcome;
-import uk.gov.hmcts.reform.finrem.ccd.domain.GeneralOrderJudgeType;
+import uk.gov.hmcts.reform.finrem.ccd.domain.JudgeType;
 import uk.gov.hmcts.reform.finrem.ccd.domain.YesOrNo;
 
 import java.time.LocalDate;
@@ -37,7 +37,7 @@ public class GeneralApplicationWrapper {
     private String generalApplicationNotApprovedReason;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate generalApplicationDirectionsHearingDate;
-    private GeneralOrderJudgeType generalApplicationDirectionsJudgeType;
+    private JudgeType generalApplicationDirectionsJudgeType;
     private String generalApplicationDirectionsJudgeName;
     private List<GeneralApplicationCollection> generalApplicationCollection;
     private String generalApplicationCreatedBy;

@@ -22,7 +22,7 @@ public class GeneralOrder {
     private String generalOrderAddressTo;
     private String generalOrderOrder;
     private Document generalOrderDocumentUpload;
-    private GeneralOrderJudge generalOrderJudgeList;
+    private JudgeType generalOrderJudgeType;
     private String generalOrderJudgeName;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate generalOrderDateOfOrder;

@@ -21,6 +21,7 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.GeneralLetterWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.GeneralOrderWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.InterimWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.MiamWrapper;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.NatureApplicationWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.ReferToJudgeWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.RegionWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.UploadCaseDocumentWrapper;
@@ -55,14 +56,6 @@ public class FinremCaseData {
     private Intention applicantIntendsTo;
     private List<PeriodicalPaymentSubstitute> dischargePeriodicalPaymentSubstituteFor;
     private YesOrNo applyingForConsentOrder;
-    private List<NatureApplication> natureOfApplication2;
-    private String natureOfApplication3a;
-    private String natureOfApplication3b;
-    private YesOrNo orderForChildrenQuestion1;
-    private YesOrNo natureOfApplication5;
-    private NatureApplication5b natureOfApplication5b;
-    private List<ChildrenOrder> natureOfApplication6;
-    private String natureOfApplication7;
     private YesOrNo childSupportAgencyCalculationMade;
     private String childSupportAgencyCalculationReason;
     private String authorisationName;
@@ -159,7 +152,6 @@ public class FinremCaseData {
     private Document divorceUploadPetition;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate divorcePetitionIssuedDate;
-    private List<NatureApplication> natureOfApplicationChecklist;
     private String propertyAddress;
     private String mortgageDetail;
     private YesOrNo additionalPropertyOrderDecision;
@@ -219,7 +211,7 @@ public class FinremCaseData {
     private List<DirectionDetailCollection> directionDetailsCollection;
     private List<DirectionOrderCollection> finalOrderCollection;
     private List<JudgeNotApprovedReasonsCollection> judgeNotApprovedReasons;
-    private RefusalOrderJudgeType refusalOrderJudgeType;
+    private JudgeType refusalOrderJudgeType;
     private String refusalOrderJudgeName;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate refusalOrderDate;
@@ -228,10 +220,9 @@ public class FinremCaseData {
     private Document latestRefusalOrder;
     private Document refusalOrderAdditionalDocument;
     private String hiddenTabValue;
-    private CleavelandCourt cleavelandCourtList;
     private Document latestDraftHearingOrder;
     private String orderApprovedJudgeName;
-    private RefusalOrderJudgeType orderApprovedJudgeType;
+    private JudgeType orderApprovedJudgeType;
     private List<UploadAdditionalDocumentCollection> uploadAdditionalDocument;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate orderApprovedDate;
@@ -273,6 +264,9 @@ public class FinremCaseData {
     @JsonUnwrapped
     @Getter(AccessLevel.NONE)
     private MiamWrapper miamWrapper;
+    @JsonUnwrapped
+    @Getter(AccessLevel.NONE)
+    private NatureApplicationWrapper natureApplicationWrapper;
 
     @JsonIgnore
     public MiamWrapper getMiamWrapper() {
@@ -352,5 +346,14 @@ public class FinremCaseData {
             this.referToJudgeWrapper = new ReferToJudgeWrapper();
         }
         return referToJudgeWrapper;
+    }
+
+    @JsonIgnore
+    public NatureApplicationWrapper getNatureApplicationWrapper() {
+        if (natureApplicationWrapper == null) {
+            this.natureApplicationWrapper = new NatureApplicationWrapper();
+        }
+
+        return natureApplicationWrapper;
     }
 }

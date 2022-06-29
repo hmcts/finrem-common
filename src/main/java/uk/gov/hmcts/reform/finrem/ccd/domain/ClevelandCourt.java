@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
-public enum CleavelandCourt {
+public enum ClevelandCourt {
     FR_CLEVELAND_LIST_1("FR_cleaveland_hc_list_1"),
     FR_CLEVELAND_LIST_2("FR_cleaveland_hc_list_2"),
     FR_CLEVELAND_LIST_3("FR_cleaveland_hc_list_3"),
@@ -28,8 +28,8 @@ public enum CleavelandCourt {
     }
 
     @JsonCreator
-    public static CleavelandCourt getCleavelandCourt(String ccdType) {
-        return Arrays.stream(CleavelandCourt.values())
+    public static ClevelandCourt getCleavelandCourt(String ccdType) {
+        return Arrays.stream(ClevelandCourt.values())
             .filter(option -> option.id.equals(ccdType))
             .findFirst().orElseThrow(IllegalArgumentException::new);
     }
