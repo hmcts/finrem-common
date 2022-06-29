@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum RegionWalesFrc {
     NEWPORT("newport"),
-    SWANSEA("swansear"),
+    SWANSEA("swansea"),
     NORTH_WALES("northwales");
 
     private final String value;
