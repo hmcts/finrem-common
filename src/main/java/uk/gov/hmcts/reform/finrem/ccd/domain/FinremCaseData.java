@@ -90,7 +90,7 @@ public class FinremCaseData {
     private YesOrNo servePensionProvider;
     private PensionProvider servePensionProviderResponsibility;
     private String servePensionProviderOther;
-    private OrderDirectionJudge orderDirectionJudge;
+    private JudgeType orderDirectionJudge;
     private String orderDirectionJudgeName;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate orderDirectionDate;

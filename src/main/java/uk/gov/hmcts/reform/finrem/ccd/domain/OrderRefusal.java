@@ -18,7 +18,7 @@ public class OrderRefusal {
     private List<OrderRefusalOption> orderRefusal;
     private String orderRefusalOther;
     private Document orderRefusalDocs;
-    private OrderDirectionJudge orderRefusalJudge;
+    private JudgeType orderRefusalJudge;
     private String orderRefusalJudgeName;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate orderRefusalDate;
