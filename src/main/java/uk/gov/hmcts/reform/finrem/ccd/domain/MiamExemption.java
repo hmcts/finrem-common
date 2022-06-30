@@ -12,7 +12,7 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 public enum MiamExemption {
     DOMESTIC_VIOLENCE("domesticViolence"),
-    URGENCY("urgenct"),
+    URGENCY("urgency"),
     PREVIOUS_MIAM_ATTENDANCE("previousMIAMattendance"),
     OTHER("other");
 

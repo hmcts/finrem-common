@@ -26,7 +26,7 @@ public class NatureApplicationWrapper {
     private String natureOfApplication3b;
     private YesOrNo orderForChildrenQuestion1;
     private YesOrNo natureOfApplication5;
-    private NatureApplication5b natureApplication5b;
+    private NatureApplication5b natureOfApplication5b;
     private List<ChildrenOrder> natureOfApplication6;
     private String natureOfApplication7;
 }

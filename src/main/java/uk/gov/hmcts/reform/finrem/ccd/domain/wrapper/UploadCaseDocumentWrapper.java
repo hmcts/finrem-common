@@ -2,6 +2,7 @@ package uk.gov.hmcts.reform.finrem.ccd.domain.wrapper;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,18 +20,21 @@ import java.util.List;
 public class UploadCaseDocumentWrapper {
     private List<UploadCaseDocumentCollection> uploadCaseDocument;
     private List<UploadCaseDocumentCollection> appCorrespondenceCollection;
+    @JsonProperty("appFRFormsCollection")
     private List<UploadCaseDocumentCollection> appFrFormsCollection;
     private List<UploadCaseDocumentCollection> appEvidenceCollection;
     private List<UploadCaseDocumentCollection> appTrialBundleCollection;
     private List<UploadCaseDocumentCollection> appConfidentialDocsCollection;
     private List<UploadCaseDocumentCollection> respCorrespondenceCollection;
+    @JsonProperty("respFRFormsCollection")
     private List<UploadCaseDocumentCollection> respFrFormsCollection;
     private List<UploadCaseDocumentCollection> respEvidenceCollection;
     private List<UploadCaseDocumentCollection> respTrialBundleCollection;
     private List<UploadCaseDocumentCollection> respConfidentialDocsCollection;
     private List<UploadCaseDocumentCollection> appHearingBundlesCollection;
-    private List<UploadCaseDocumentCollection> appFormeExhibitsCollection;
+    private List<UploadCaseDocumentCollection> appFormEExhibitsCollection;
     private List<UploadCaseDocumentCollection> appChronologiesCollection;
+    @JsonProperty("appQACollection")
     private List<UploadCaseDocumentCollection> appQaCollection;
     private List<UploadCaseDocumentCollection> appStatementsExhibitsCollection;
     private List<UploadCaseDocumentCollection> appCaseSummariesCollection;
@@ -41,6 +45,7 @@ public class UploadCaseDocumentWrapper {
     private List<UploadCaseDocumentCollection> respHearingBundlesCollection;
     private List<UploadCaseDocumentCollection> respFormEExhibitsCollection;
     private List<UploadCaseDocumentCollection> respChronologiesCollection;
+    @JsonProperty("respQACollection")
     private List<UploadCaseDocumentCollection> respQaCollection;
     private List<UploadCaseDocumentCollection> respStatementsExhibitsCollection;
     private List<UploadCaseDocumentCollection> respCaseSummariesCollection;
@@ -51,6 +56,7 @@ public class UploadCaseDocumentWrapper {
     private List<UploadCaseDocumentCollection> appHearingBundlesCollectionShared;
     private List<UploadCaseDocumentCollection> appFormEExhibitsCollectionShared;
     private List<UploadCaseDocumentCollection> appChronologiesCollectionShared;
+    @JsonProperty("appQACollectionShared")
     private List<UploadCaseDocumentCollection> appQaCollectionShared;
     private List<UploadCaseDocumentCollection> appStatementsExhibitsCollShared;
     private List<UploadCaseDocumentCollection> appCaseSummariesCollectionShared;
@@ -61,6 +67,7 @@ public class UploadCaseDocumentWrapper {
     private List<UploadCaseDocumentCollection> respHearingBundlesCollShared;
     private List<UploadCaseDocumentCollection> respFormEExhibitsCollectionShared;
     private List<UploadCaseDocumentCollection> respChronologiesCollectionShared;
+    @JsonProperty("respQACollectionShared")
     private List<UploadCaseDocumentCollection> respQaCollectionShared;
     private List<UploadCaseDocumentCollection> respStatementsExhibitsCollShared;
     private List<UploadCaseDocumentCollection> respCaseSummariesCollectionShared;

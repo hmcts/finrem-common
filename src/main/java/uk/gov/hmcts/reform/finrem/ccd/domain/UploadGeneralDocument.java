@@ -2,6 +2,7 @@ package uk.gov.hmcts.reform.finrem.ccd.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,11 +16,17 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UploadGeneralDocument {
+    @JsonProperty("DocumentType")
     private UploadGeneralDocumentType documentType;
+    @JsonProperty("DocumentEmailContent")
     private String documentEmailContent;
+    @JsonProperty("DocumentLink")
     private Document documentLink;
+    @JsonProperty("DocumentDateAdded")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate documentDateAdded;
+    @JsonProperty("DocumentComment")
     private String documentComment;
+    @JsonProperty("DocumentFileName")
     private String documentFileName;
 }

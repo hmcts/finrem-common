@@ -19,4 +19,10 @@ public class DraftDirectionDetails {
     private YesOrNo isAnotherHearingYN;
     private HearingTypeDirection typeOfHearing;
     private HearingTimeDirection timeEstimate;
+    private String additionalTime;
+    private Court localCourt;
+    private NottinghamCourt nottinghamList;
+    private CfcCourt cfcList;
+    private String listingInstructor;
+
 }

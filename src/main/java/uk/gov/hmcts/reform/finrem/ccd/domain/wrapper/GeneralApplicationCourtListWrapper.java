@@ -2,6 +2,7 @@ package uk.gov.hmcts.reform.finrem.ccd.domain.wrapper;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,22 +33,40 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.ThamesValleyCourt;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class GeneralApplicationCourtListWrapper implements CourtListWrapper {
+    @JsonProperty("generalApplicationDirections_nottinghamCourtList")
     private NottinghamCourt generalApplicationDirectionsNottinghamCourtList;
+    @JsonProperty("generalApplicationDirections_cfcCourtList")
     private CfcCourt generalApplicationDirectionsCfcCourtList;
+    @JsonProperty("generalApplicationDirections_birminghamCourtList")
     private BirminghamCourt generalApplicationDirectionsBirminghamCourtList;
+    @JsonProperty("generalApplicationDirections_liverpoolCourtList")
     private LiverpoolCourt generalApplicationDirectionsLiverpoolCourtList;
+    @JsonProperty("generalApplicationDirections_manchesterCourtList")
     private ManchesterCourt generalApplicationDirectionsManchesterCourtList;
+    @JsonProperty("generalApplicationDirections_lancashireCourtList")
     private LancashireCourt generalApplicationDirectionsLancashireCourtList;
-    private ClevelandCourt generalApplicationDirectionsCleavelandCourtList;
+    @JsonProperty("generalApplicationDirections_cleavelandCourtList")
+    private ClevelandCourt generalApplicationDirectionsClevelandCourtList;
+    @JsonProperty("generalApplicationDirections_nwyorkshireCourtList")
     private NwYorkshireCourt generalApplicationDirectionsNwYorkshireCourtList;
+    @JsonProperty("generalApplicationDirections_humberCourtList")
     private HumberCourt generalApplicationDirectionsHumberCourtList;
+    @JsonProperty("generalApplicationDirections_kentSurreyCourtList")
     private KentSurreyCourt generalApplicationDirectionsKentSurreyCourtList;
+    @JsonProperty("generalApplicationDirections_bedfordshireCourtList")
     private BedfordshireCourt generalApplicationDirectionsBedfordshireCourtList;
+    @JsonProperty("generalApplicationDirections_thamesvalleyCourtList")
     private ThamesValleyCourt generalApplicationDirectionsThamesValleyCourtList;
+    @JsonProperty("generalApplicationDirections_devonCourtList")
     private DevonCourt generalApplicationDirectionsDevonCourtList;
+    @JsonProperty("generalApplicationDirections_dorsetCourtList")
     private DorsetCourt generalApplicationDirectionsDorsetCourtList;
+    @JsonProperty("generalApplicationDirections_bristolCourtList")
     private BristolCourt generalApplicationDirectionsBristolCourtList;
+    @JsonProperty("generalApplicationDirections_newportCourtList")
     private NewportCourt generalApplicationDirectionsNewportCourtList;
+    @JsonProperty("generalApplicationDirections_swanseaCourtList")
     private SwanseaCourt generalApplicationDirectionsSwanseaCourtList;
+    @JsonProperty("generalApplicationDirections_northWalesCourtList")
     private NorthWalesCourt generalApplicationDirectionsNorthWalesCourtList;
 }
