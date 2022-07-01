@@ -12,7 +12,7 @@ In order to create a local library version and add it to your service as a depen
 ./gradlew publishToMavenLocal
 ```
 
-and change the version to DEV-SNAPSHOT
+and change the version to DEV-SNAPSHOT .
 
 ### in QA
 
