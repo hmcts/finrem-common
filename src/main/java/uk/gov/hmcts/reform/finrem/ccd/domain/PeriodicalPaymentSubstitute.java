@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
 
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
 public enum PeriodicalPaymentSubstitute {
     LUMP_SUM_ORDER("lumpSumOrder"),

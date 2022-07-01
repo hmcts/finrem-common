@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
 
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
 public enum OtherDocumentType {
     SCHEDULE_OF_ASSETS("ScheduleOfAssets"),

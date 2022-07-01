@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
 
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
 public enum UploadDocumentType {
     FINAL_ORDER("Final order"),

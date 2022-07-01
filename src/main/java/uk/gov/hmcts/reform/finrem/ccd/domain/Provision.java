@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
 
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
 public enum Provision {
     MATRIMONIAL_OR_CIVIL_PARTNERSHIP_PROCEEDINGS("matrimonialOrCivilPartnershipProceedings"),

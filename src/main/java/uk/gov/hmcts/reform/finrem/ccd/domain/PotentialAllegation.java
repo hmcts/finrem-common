@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
 
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
 public enum PotentialAllegation {
     POTENTIAL_ALLEGATION_CHECKLIST_1("potentialAllegationChecklist_1"),

@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
 
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
 public enum JudgeAllocated {
     FR_JUDGE_ALLOCATED_LIST_1("FR_judgeAllocatedList_1"),

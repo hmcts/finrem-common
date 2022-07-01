@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.util.List;
 
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 @Builder

@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.CourtListWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.DefaultCourtListWrapper;
 
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 @Builder

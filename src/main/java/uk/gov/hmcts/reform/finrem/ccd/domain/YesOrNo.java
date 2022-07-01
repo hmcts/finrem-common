@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 
 import static java.util.Objects.isNull;
 
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
 public enum YesOrNo {
     YES("Yes"),
