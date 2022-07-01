@@ -36,6 +36,8 @@ dependencies {
     implementation group: 'com.github.hmcts', name: 'java-logging', version: versions.hmctsLogging
     implementation group: 'com.github.hmcts', name: 'ccd-client', version: versions.hmctsCcdClient
     implementation group: 'org.projectlombok', name: 'lombok', version: versions.lombok
+    implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.3.0-rc1'
+
 }
 
 sonarqube {

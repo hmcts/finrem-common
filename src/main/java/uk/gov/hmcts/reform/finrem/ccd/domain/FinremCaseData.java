@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -45,9 +47,11 @@ public class FinremCaseData {
     private String divorceCaseNumber;
     private StageReached divorceStageReached;
     private Document divorceUploadEvidence1;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate divorceDecreeNisiDate;
     private Document divorceUploadEvidence2;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate divorceDecreeAbsoluteDate;
     private Provision provisionMadeFor;
@@ -59,6 +63,7 @@ public class FinremCaseData {
     private String authorisationName;
     private String authorisationFirm;
     private String authorisation2b;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate authorisation3;
     private Document miniFormA;
@@ -92,14 +97,17 @@ public class FinremCaseData {
     private String servePensionProviderOther;
     private JudgeType orderDirectionJudge;
     private String orderDirectionJudgeName;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate orderDirectionDate;
     private String orderDirectionAddComments;
     private List<OrderRefusalCollection> orderRefusalCollection;
     private List<OrderRefusalCollection> orderRefusalCollectionNew;
     private Document orderRefusalPreviewDocument;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate issueDate;
     private AssignToJudgeReason assignedToJudgeReason;
@@ -144,12 +152,15 @@ public class FinremCaseData {
     private Document bulkPrintCoverSheetAppConfidential;
     private Document bulkPrintCoverSheetResConfidential;
     private YesOrNo respSolNotificationsEmailConsent;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dateOfMarriage;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dateOfSepration;
     private String nameOfCourtDivorceCentre;
     private Document divorceUploadPetition;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate divorcePetitionIssuedDate;
     private String propertyAddress;
@@ -183,6 +194,7 @@ public class FinremCaseData {
     private List<AdditionalHearingDocumentCollection> additionalHearingDocuments;
     private HearingTypeDirection hearingType;
     private String timeEstimate;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate hearingDate;
     private String additionalInformationAboutHearing;
@@ -199,6 +211,7 @@ public class FinremCaseData {
     private String assignToJudgeText;
     private YesOrNo subjectToDecreeAbsoluteValue;
     private String selectJudge;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dateOfOrder;
     private String additionalComments;
@@ -213,6 +226,7 @@ public class FinremCaseData {
     private List<JudgeNotApprovedReasonsCollection> judgeNotApprovedReasons;
     private JudgeType refusalOrderJudgeType;
     private String refusalOrderJudgeName;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate refusalOrderDate;
     private Document refusalOrderPreviewDocument;
@@ -224,6 +238,7 @@ public class FinremCaseData {
     private String orderApprovedJudgeName;
     private JudgeType orderApprovedJudgeType;
     private List<UploadAdditionalDocumentCollection> uploadAdditionalDocument;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate orderApprovedDate;
     private Document orderApprovedCoverLetter;
