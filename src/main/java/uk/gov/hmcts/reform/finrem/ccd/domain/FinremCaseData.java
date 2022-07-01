@@ -6,8 +6,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,7 +31,6 @@ import java.util.List;
 
 import static com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY;
 
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
@@ -81,7 +78,9 @@ public class FinremCaseData {
     private String hwfNumber;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private BigDecimal amountToPay;
+    @JsonProperty("PBANumber")
     private String pbaNumber;
+    @JsonProperty("PBAreference")
     private String pbaReference;
     private String pbaPaymentReference;
     private OrderDirection orderDirection;

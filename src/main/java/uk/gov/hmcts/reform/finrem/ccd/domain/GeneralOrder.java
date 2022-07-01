@@ -34,4 +34,5 @@ public class GeneralOrder {
     private LocalDate generalOrderDateOfOrder;
     @JsonProperty("generalOrder_comments")
     private String generalOrderComments;
+    private String generalOrderText;
 }

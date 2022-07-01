@@ -27,15 +27,20 @@ public class ContactDetailsWrapper {
     private Address applicantSolicitorAddress;
     private String applicantSolicitorPhone;
     private String applicantSolicitorEmail;
+    @JsonProperty("applicantSolicitorDXnumber")
     private String applicantSolicitorDxNumber;
     private YesOrNo applicantSolicitorConsentForEmails;
+    @JsonProperty("applicantFMName")
     private String applicantFmName;
+    @JsonProperty("applicantLName")
     private String applicantLname;
     private Address applicantAddress;
     private String applicantPhone;
     private String applicantEmail;
     private YesOrNo applicantAddressConfidential;
+    @JsonProperty("respondentFMName")
     private String respondentFmName;
+    @JsonProperty("respondentLName")
     private String respondentLname;
     private YesOrNo respondentRepresented;
     @JsonProperty("rSolicitorName")
@@ -50,7 +55,7 @@ public class ContactDetailsWrapper {
     private String respondentSolicitorPhone;
     @JsonProperty("rSolicitorEmail")
     private String respondentSolicitorEmail;
-    @JsonProperty("rSolicitorDXNumber")
+    @JsonProperty("rSolicitorDXnumber")
     private String respondentSolicitorDxNumber;
     private Address respondentAddress;
     private String respondentPhone;
@@ -61,8 +66,10 @@ public class ContactDetailsWrapper {
     private Address solicitorAddress;
     private String solicitorPhone;
     private String solicitorEmail;
+    @JsonProperty("solicitorDXnumber")
     private String solicitorDxNumber;
     private YesOrNo solicitorAgreeToReceiveEmails;
+    @JsonProperty("appRespondentFMName")
     private String appRespondentFmName;
     private String appRespondentLName;
     private YesOrNo appRespondentRep;
