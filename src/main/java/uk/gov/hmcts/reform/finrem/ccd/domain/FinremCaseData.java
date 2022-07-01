@@ -14,6 +14,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.ConsentOrderWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.ContactDetailsWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.DraftDirectionWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.GeneralApplicationWrapper;
@@ -267,6 +268,9 @@ public class FinremCaseData {
     @JsonUnwrapped
     @Getter(AccessLevel.NONE)
     private NatureApplicationWrapper natureApplicationWrapper;
+    @JsonUnwrapped
+    @Getter(AccessLevel.NONE)
+    private ConsentOrderWrapper consentOrderWrapper;
 
     @JsonIgnore
     public MiamWrapper getMiamWrapper() {
@@ -355,5 +359,14 @@ public class FinremCaseData {
         }
 
         return natureApplicationWrapper;
+    }
+
+    @JsonIgnore
+    public ConsentOrderWrapper getConsentOrderWrapper() {
+        if (consentOrderWrapper == null) {
+            this.consentOrderWrapper = new ConsentOrderWrapper();
+        }
+
+        return consentOrderWrapper;
     }
 }
