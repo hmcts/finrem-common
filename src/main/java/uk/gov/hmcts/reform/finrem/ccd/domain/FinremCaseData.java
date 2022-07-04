@@ -30,6 +30,7 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.UploadCaseDocumentWrapper;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 import static com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY;
 
@@ -45,6 +46,7 @@ public class FinremCaseData {
     private String ccdCaseId;
 
     private String divorceCaseNumber;
+    private CaseType ccdCaseType;
     private StageReached divorceStageReached;
     private Document divorceUploadEvidence1;
     @JsonSerialize(using = LocalDateSerializer.class)
@@ -151,6 +153,7 @@ public class FinremCaseData {
     private YesOrNo paperApplication;
     private Document bulkPrintCoverSheetAppConfidential;
     private Document bulkPrintCoverSheetResConfidential;
+    @JsonProperty("RespSolNotificationsEmailConsent")
     private YesOrNo respSolNotificationsEmailConsent;
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
@@ -250,6 +253,8 @@ public class FinremCaseData {
     private SendOrderEventPostStateOption sendOrderPostStateOption;
     private List<UploadConfidentialDocumentCollection> confidentialDocumentsUploaded;
     private ChangeOrganisationRequest changeOrganisationRequestField;
+    @JsonProperty("Contested_ConsentedApprovedOrders")
+    private List<ConsentOrderCollection> contestedConsentedApprovedOrders;
     @JsonUnwrapped
     @Getter(AccessLevel.NONE)
     private RegionWrapper regionWrapper;
@@ -383,5 +388,130 @@ public class FinremCaseData {
         }
 
         return consentOrderWrapper;
+    }
+
+    @JsonIgnore
+    public String nullToEmpty(Object o) {
+        return Objects.toString(o, "");
+    }
+
+    @JsonIgnore
+    public String getFullApplicantName() {
+        return (
+            nullToEmpty(contactDetailsWrapper.getApplicantFmName()).trim()
+            + " "
+            + nullToEmpty(contactDetailsWrapper.getApplicantLname()).trim()
+        ).trim();
+    }
+
+    @JsonIgnore
+    public String getFullRespondentNameContested() {
+        return (
+            nullToEmpty(contactDetailsWrapper.getRespondentFmName()).trim()
+                + " "
+                + nullToEmpty(contactDetailsWrapper.getRespondentLname()).trim()
+        ).trim();
+    }
+
+    @JsonIgnore
+    public String getFullRespondentNameConsented() {
+        return (
+            nullToEmpty(contactDetailsWrapper.getAppRespondentFmName()).trim()
+                + " "
+                + nullToEmpty(contactDetailsWrapper.getAppRespondentLName()).trim()
+        ).trim();
+    }
+
+    @JsonIgnore
+    public String getRespondentFullName() {
+        return ccdCaseType.equals(CaseType.CONTESTED)
+            ? getFullRespondentNameContested()
+            : getFullRespondentNameConsented();
+    }
+
+    @JsonIgnore
+    public boolean isApplicantRepresentedByASolicitor() {
+        return contactDetailsWrapper.getApplicantRepresented().isYes();
+    }
+
+    @JsonIgnore
+    public boolean isApplicantSolicitorAgreeToReceiveEmails() {
+        return ccdCaseType.equals(CaseType.CONTESTED)
+            ? contactDetailsWrapper.getApplicantSolicitorConsentForEmails().isYes()
+            : contactDetailsWrapper.getSolicitorAgreeToReceiveEmails().isYes();
+    }
+
+    @JsonIgnore
+    public boolean isRespondentSolicitorAgreeToReceiveEmails() {
+        return respSolNotificationsEmailConsent.isYes();
+    }
+
+    @JsonIgnore
+    public boolean isRespondentRepresentedByASolicitor() {
+        return contactDetailsWrapper.getContestedRespondentRepresented().isYes()
+            || contactDetailsWrapper.getConsentedRespondentRepresented().isYes();
+    }
+
+    @JsonIgnore
+    public boolean isPaperCase() {
+        return paperApplication.isYes();
+    }
+
+    @JsonIgnore
+    public boolean isConsentedInContestedCase() {
+        return ccdCaseType.equals(CaseType.CONTESTED) && consentOrderWrapper.getConsentD81Question().isYes();
+    }
+
+    @JsonIgnore
+    public boolean isApplicantSolicitorResponsibleToDraftOrder() {
+        return solicitorResponsibleForDraftingOrder.equals(SolicitorToDraftOrder.APPLICANT_SOLICITOR);
+    }
+
+    @JsonIgnore
+    public boolean isConsentedApplication() {
+        return ccdCaseType.equals(CaseType.CONSENTED);
+    }
+
+    @JsonIgnore
+    public boolean isContestedApplication() {
+        return ccdCaseType.equals(CaseType.CONTESTED);
+    }
+
+    @JsonIgnore
+    public boolean isContestedPaperApplication() {
+        return isContestedApplication() && isPaperCase();
+    }
+
+    @JsonIgnore
+    public boolean isOrderApprovedCollectionPresent() {
+        return isContestedApplication()
+            ? isContestedOrderApprovedCollectionPresent()
+            : isConsentedOrderApprovedCollectionPresent();
+    }
+
+    @JsonIgnore
+    public boolean isConsentedOrderApprovedCollectionPresent() {
+        return approvedOrderCollection !=  null && !approvedOrderCollection.isEmpty();
+    }
+
+    @JsonIgnore
+    public boolean isContestedOrderApprovedCollectionPresent() {
+        return contestedConsentedApprovedOrders != null && !contestedConsentedApprovedOrders.isEmpty();
+    }
+
+    @JsonIgnore
+    public boolean isApplicantAddressConfidential() {
+        return contactDetailsWrapper.getApplicantAddressConfidential().isYes();
+    }
+
+    @JsonIgnore
+    public boolean isRespondentAddressConfidential() {
+        return contactDetailsWrapper.getRespondentAddressConfidential().isYes();
+    }
+
+    @JsonIgnore
+    public boolean isContestedOrderNotApprovedCollectionPresent() {
+        return consentOrderWrapper.getConsentedNotApprovedOrders() != null
+            && !consentOrderWrapper.getConsentedNotApprovedOrders().isEmpty();
     }
 }
