@@ -19,6 +19,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UploadCaseDocumentWrapper {
     private List<UploadCaseDocumentCollection> uploadCaseDocument;
+    private List<UploadCaseDocumentCollection> fdrCaseDocumentCollection;
     private List<UploadCaseDocumentCollection> appCorrespondenceCollection;
     @JsonProperty("appFRFormsCollection")
     private List<UploadCaseDocumentCollection> appFrFormsCollection;
