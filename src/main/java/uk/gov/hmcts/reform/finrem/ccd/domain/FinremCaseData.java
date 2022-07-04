@@ -249,6 +249,7 @@ public class FinremCaseData {
     private List<HearingUploadBundleCollection> hearingUploadBundle;
     private SendOrderEventPostStateOption sendOrderPostStateOption;
     private List<UploadConfidentialDocumentCollection> confidentialDocumentsUploaded;
+    private ChangeOrganisationRequest changeOrganisationRequestField;
     @JsonUnwrapped
     @Getter(AccessLevel.NONE)
     private RegionWrapper regionWrapper;
