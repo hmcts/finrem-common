@@ -42,7 +42,8 @@ public class ContactDetailsWrapper {
     private String respondentFmName;
     @JsonProperty("respondentLName")
     private String respondentLname;
-    private YesOrNo respondentRepresented;
+    @JsonProperty("respondentRepresented")
+    private YesOrNo contestedRespondentRepresented;
     @JsonProperty("rSolicitorName")
     private String respondentSolicitorName;
     @JsonProperty("rSolicitorFirm")
@@ -72,6 +73,7 @@ public class ContactDetailsWrapper {
     @JsonProperty("appRespondentFMName")
     private String appRespondentFmName;
     private String appRespondentLName;
-    private YesOrNo appRespondentRep;
+    @JsonProperty("appRespondentRep")
+    private YesOrNo consentedRespondentRepresented;
     private String isAdmin;
 }
