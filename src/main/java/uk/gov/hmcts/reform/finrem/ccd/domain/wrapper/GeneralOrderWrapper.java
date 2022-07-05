@@ -35,6 +35,7 @@ public class GeneralOrderWrapper {
     private String generalOrderRecitals;
     private String generalOrderJudgeName;
     private Document generalOrderLatestDocument;
+    private Document generalOrderPreviewDocument;
     private List<ContestedGeneralOrderCollection> generalOrders;
     private List<ContestedGeneralOrderCollection> generalOrdersConsent;
     private List<GeneralOrderCollection> generalOrderCollection;
