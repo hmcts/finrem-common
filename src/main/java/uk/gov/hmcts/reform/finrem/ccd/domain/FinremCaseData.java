@@ -130,7 +130,7 @@ public class FinremCaseData {
     private String bulkPrintLetterIdRes;
     private Document bulkPrintCoverSheetApp;
     private String bulkPrintLetterIdApp;
-    private List<ApprovedOrderCollection> approvedOrderCollection;
+    private List<ConsentOrderCollection> approvedOrderCollection;
     private ApplicantRole divRoleOfFrApplicant;
     private ApplicantRepresentedPaper applicantRepresentedPaper;
     private String authorisationSolicitorAddress;

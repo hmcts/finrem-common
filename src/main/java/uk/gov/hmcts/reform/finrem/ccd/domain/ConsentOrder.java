@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ConsentOrder {
-    private Document consentOrder;
     private Document orderLetter;
+    private Document consentOrder;
     private List<PensionTypeCollection> pensionDocuments;
 }
