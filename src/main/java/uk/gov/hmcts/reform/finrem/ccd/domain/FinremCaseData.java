@@ -514,4 +514,37 @@ public class FinremCaseData {
         return consentOrderWrapper.getConsentedNotApprovedOrders() != null
             && !consentOrderWrapper.getConsentedNotApprovedOrders().isEmpty();
     }
+
+    @JsonIgnore
+    public String getApplicantSolicitorName() {
+        return isConsentedApplication()
+            ? contactDetailsWrapper.getSolicitorName()
+            : contactDetailsWrapper.getApplicantSolicitorName();
+    }
+
+    @JsonIgnore
+    public Address getApplicantSolicitorAddress() {
+        return isConsentedApplication()
+            ? contactDetailsWrapper.getSolicitorAddress()
+            : contactDetailsWrapper.getApplicantSolicitorAddress();
+    }
+
+    @JsonIgnore
+    public String getApplicantSolicitorEmail() {
+        return isConsentedApplication()
+            ? contactDetailsWrapper.getSolicitorEmail()
+            : contactDetailsWrapper.getApplicantSolicitorEmail();
+    }
+
+    @JsonIgnore
+    public String getApplicantSolicitorFirm() {
+        return isConsentedApplication()
+            ? contactDetailsWrapper.getSolicitorFirm()
+            : contactDetailsWrapper.getApplicantSolicitorFirm();
+    }
+
+    @JsonIgnore
+    public String getRespondentSolicitorName() {
+        return contactDetailsWrapper.getRespondentSolicitorName();
+    }
 }
