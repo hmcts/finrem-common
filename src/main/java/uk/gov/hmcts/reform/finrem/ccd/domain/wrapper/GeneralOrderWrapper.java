@@ -31,7 +31,7 @@ public class GeneralOrderWrapper {
     private LocalDate generalOrderDate;
     private String generalOrderCreatedBy;
     private String generalOrderBodyText;
-    private JudgeType judgeType;
+    private JudgeType generalOrderJudgeType;
     private String generalOrderRecitals;
     private String generalOrderJudgeName;
     private Document generalOrderLatestDocument;
