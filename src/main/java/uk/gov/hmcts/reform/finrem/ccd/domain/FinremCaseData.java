@@ -31,6 +31,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import static com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY;
 
@@ -549,5 +550,12 @@ public class FinremCaseData {
     @JsonIgnore
     public String getRespondentSolicitorName() {
         return contactDetailsWrapper.getRespondentSolicitorName();
+    }
+
+    @JsonIgnore
+    public boolean isFastTrackApplication() {
+        return Optional.ofNullable(caseAllocatedTo)
+            .map(caseAllocatedTo -> caseAllocatedTo.isYes())
+            .orElseGet(() -> fastTrackDecision.isYes());
     }
 }
