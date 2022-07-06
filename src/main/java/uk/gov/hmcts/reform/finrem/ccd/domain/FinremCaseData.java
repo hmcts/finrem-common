@@ -124,7 +124,6 @@ public class FinremCaseData {
     private String state;
     private List<ScannedDocumentCollection> scannedDocuments;
     private YesOrNo evidenceHandled;
-
     private Document approvedConsentOrderLetter;
     private Document bulkPrintCoverSheetRes;
     private String bulkPrintLetterIdRes;
@@ -253,6 +252,10 @@ public class FinremCaseData {
     private SendOrderEventPostStateOption sendOrderPostStateOption;
     private List<UploadConfidentialDocumentCollection> confidentialDocumentsUploaded;
     private ChangeOrganisationRequest changeOrganisationRequestField;
+    @JsonProperty("ApplicantOrganisationPolicy")
+    private OrganisationPolicy applicantOrganisationPolicy;
+    @JsonProperty("RespondentOrganisationPolicy")
+    private OrganisationPolicy respondentOrganisationPolicy;
     @JsonProperty("Contested_ConsentedApprovedOrders")
     private List<ConsentOrderCollection> contestedConsentedApprovedOrders;
     @JsonUnwrapped
