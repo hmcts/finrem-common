@@ -11,16 +11,21 @@ import java.util.Arrays;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
 public enum MiamExemption {
-    DOMESTIC_VIOLENCE("domesticViolence"),
-    URGENCY("urgency"),
-    PREVIOUS_MIAM_ATTENDANCE("previousMIAMattendance"),
-    OTHER("other");
+    DOMESTIC_VIOLENCE("domesticViolence", "Domestic violence"),
+    URGENCY("urgency", "Urgency"),
+    PREVIOUS_MIAM_ATTENDANCE("previousMIAMattendance", "Previous MIAM attendance or previous MIAM exemption"),
+    OTHER("other", "Other");
 
     private final String value;
+    private final String text;
 
     @JsonValue
     public String getValue() {
         return value;
+    }
+
+    public String getText() {
+        return text;
     }
 
     @JsonCreator
