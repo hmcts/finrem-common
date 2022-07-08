@@ -11,15 +11,20 @@ import java.util.Arrays;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
 public enum GeneralOrderAddressTo {
-    APPLICANT("applicant"),
-    APPLICANT_SOLICITOR("applicantSolicitor"),
-    RESPONDENT_SOLICITOR("respondentSolicitor");
+    APPLICANT("applicant", "Applicant"),
+    APPLICANT_SOLICITOR("applicantSolicitor", "Applicant Solicitor"),
+    RESPONDENT_SOLICITOR("respondentSolicitor", "Respondent Solicitor");
 
     private final String value;
+    private final String text;
 
     @JsonValue
     public String getValue() {
         return value;
+    }
+
+    public String getText() {
+        return text;
     }
 
     @JsonCreator
