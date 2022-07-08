@@ -8,15 +8,21 @@ import java.util.Arrays;
 
 @RequiredArgsConstructor
 public enum SendOrderEventPostStateOption {
-    PREPARE_FOR_HEARING("prepareForHearing"),
-    CLOSE("close"),
-    ORDER_SENT("orderSent");
+    PREPARE_FOR_HEARING("prepareForHearing", EventType.PREPARE_FOR_HEARING),
+    CLOSE("close", EventType.CLOSE),
+    ORDER_SENT("orderSent", EventType.NONE),
+    NONE("", EventType.NONE);
 
     private final String value;
+    private final EventType eventToTrigger;
 
     @JsonValue
     public String getValue() {
         return value;
+    }
+
+    public EventType getEventToTrigger() {
+        return eventToTrigger;
     }
 
     @JsonCreator

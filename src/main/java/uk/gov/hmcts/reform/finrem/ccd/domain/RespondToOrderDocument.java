@@ -20,6 +20,7 @@ import java.time.LocalDate;
 public class RespondToOrderDocument {
     @JsonProperty("DocumentType")
     private RespondToOrderDocumentType documentType;
+    @JsonProperty("DocumentEmailContent")
     private String documentEmailContent;
     @JsonProperty("DocumentLink")
     private Document documentLink;
