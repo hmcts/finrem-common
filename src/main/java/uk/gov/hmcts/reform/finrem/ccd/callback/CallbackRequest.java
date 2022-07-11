@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import uk.gov.hmcts.reform.finrem.ccd.domain.EventType;
@@ -16,6 +17,7 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.FinremCaseDetails;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Builder
 public class CallbackRequest {
 
     @JsonProperty("event_id")
