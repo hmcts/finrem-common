@@ -3,6 +3,8 @@ package uk.gov.hmcts.reform.finrem.ccd.domain;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
+import java.util.stream.Stream;
+
 import static java.util.Objects.isNull;
 
 @RequiredArgsConstructor
@@ -18,7 +20,7 @@ public enum YesOrNo {
     }
 
     public boolean isYes() {
-        return value.equalsIgnoreCase("Yes");
+        return YES.getYesOrNo().equalsIgnoreCase(value);
     }
 
     public static boolean isYes(YesOrNo yesOrNo) {
@@ -38,6 +40,13 @@ public enum YesOrNo {
     }
 
     public boolean isNoOrNull() {
-        return isNull(value) || value.equalsIgnoreCase("No");
+        return isNull(value) || NO.getYesOrNo().equalsIgnoreCase(value);
+    }
+
+    public YesOrNo forValue(String yesOrNo) {
+        return Stream.of(YesOrNo.values())
+            .filter(value -> value.getYesOrNo().equalsIgnoreCase(yesOrNo))
+            .findFirst()
+            .orElseThrow(IllegalArgumentException::new);
     }
 }
