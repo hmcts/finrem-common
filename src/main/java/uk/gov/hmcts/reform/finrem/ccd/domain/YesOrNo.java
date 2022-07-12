@@ -43,7 +43,7 @@ public enum YesOrNo {
         return isNull(value) || NO.getYesOrNo().equalsIgnoreCase(value);
     }
 
-    public YesOrNo forValue(String yesOrNo) {
+    public static YesOrNo forValue(String yesOrNo) {
         return Stream.of(YesOrNo.values())
             .filter(value -> value.getYesOrNo().equalsIgnoreCase(yesOrNo))
             .findFirst()
