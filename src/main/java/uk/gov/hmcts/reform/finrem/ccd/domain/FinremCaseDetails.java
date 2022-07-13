@@ -30,7 +30,7 @@ public class FinremCaseDetails {
     private Classification securityClassification;
     private FinremCaseData caseData;
 
-    @JsonProperty("caseTypeId")
+    @JsonProperty("case_type_id")
     private CaseType caseType;
 
     @JsonProperty("locked_by_user_id")
