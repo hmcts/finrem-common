@@ -1,5 +1,6 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain.wrapper;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -69,4 +70,112 @@ public class InterimCourtListWrapper implements CourtListWrapper {
     private SwanseaCourt interimSwanseaCourtList;
     @JsonProperty("interim_northWalesCourtList")
     private NorthWalesCourt interimNorthWalesCourtList;
+
+    @JsonIgnore
+    @Override
+    public NottinghamCourt getNottinghamCourt() {
+        return interimNottinghamCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public CfcCourt getCfcCourt() {
+        return interimCfcCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public BirminghamCourt getBirminghamCourt() {
+        return interimBirminghamCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public LiverpoolCourt getLiverpoolCourt() {
+        return interimLiverpoolCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public ManchesterCourt getManchesterCourt() {
+        return interimManchesterCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public LancashireCourt getLancashireCourt() {
+        return interimLancashireCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public ClevelandCourt getClevelandCourt(boolean isConsented) {
+        return interimClevelandCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public NwYorkshireCourt getNwYorkshireCourt() {
+        return interimNwYorkshireCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public HumberCourt getHumberCourt() {
+        return interimHumberCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public KentSurreyCourt getKentSurreyCourt() {
+        return interimKentSurreyCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public BedfordshireCourt getBedfordshireCourt() {
+        return interimBedfordshireCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public ThamesValleyCourt getThamesValleyCourt() {
+        return interimThamesValleyCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public DevonCourt getDevonCourt() {
+        return interimDevonCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public DorsetCourt getDorsetCourt() {
+        return interimDorsetCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public BristolCourt getBristolCourt() {
+        return interimBristolCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public NewportCourt getNewportCourt() {
+        return interimNewportCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public SwanseaCourt getSwanseaCourt() {
+        return interimSwanseaCourtList;
+    }
+
+    @JsonIgnore
+    @Override
+    public NorthWalesCourt getNorthWalesCourt() {
+        return interimNorthWalesCourtList;
+    }
 }

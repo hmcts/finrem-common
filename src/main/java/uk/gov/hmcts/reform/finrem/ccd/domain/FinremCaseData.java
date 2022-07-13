@@ -16,10 +16,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.ConsentOrderWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.ContactDetailsWrapper;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.CourtListWrapper;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.DefaultRegionWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.DraftDirectionWrapper;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.GeneralApplicationRegionWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.GeneralApplicationWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.GeneralLetterWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.GeneralOrderWrapper;
+import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.InterimRegionWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.InterimWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.MiamWrapper;
 import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.NatureApplicationWrapper;
@@ -30,6 +34,7 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.wrapper.UploadCaseDocumentWrapper;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -559,4 +564,108 @@ public class FinremCaseData {
             .map(caseAllocatedTo -> caseAllocatedTo.isYes())
             .orElseGet(() -> fastTrackDecision.isYes());
     }
+
+    @JsonIgnore
+    public String getSelectedCourt() {
+        DefaultRegionWrapper regionWrapper = getRegionWrapper().getDefaultRegionWrapper();
+        CourtListWrapper courtList = regionWrapper.getDefaultCourtListWrapper();
+        return Map.of(
+            Region.MIDLANDS, getMidlandsCourt(regionWrapper.getMidlandsFrcList(), courtList),
+            Region.LONDON, regionWrapper.getDefaultCourtListWrapper().getCfcCourtList().getId(),
+            Region.NORTHEAST, getNorthEastCourt(regionWrapper.getNorthEastFrcList(), courtList),
+            Region.NORTHWEST, getNorthWestCourt(regionWrapper.getNorthWestFrcList(), courtList),
+            Region.SOUTHWEST, getSouthWestCourt(regionWrapper.getSouthWestFrcList(), courtList),
+            Region.SOUTHEAST, getSouthEastCourt(regionWrapper.getSouthEastFrcList(), courtList),
+            Region.WALES, getWalesCourt(regionWrapper.getWalesFrcList(), courtList)
+        ).get(regionWrapper.getRegionList());
+    }
+
+    @JsonIgnore
+    public String getInterimSelectedCourt() {
+        InterimRegionWrapper interimWrapper = getRegionWrapper().getInterimRegionWrapper();
+        CourtListWrapper courtList = regionWrapper.getInterimCourtList();
+        return Map.of(
+            Region.MIDLANDS, getMidlandsCourt(interimWrapper.getInterimMidlandsFrcList(), courtList),
+            Region.LONDON, interimWrapper.getCourtListWrapper().getInterimCfcCourtList().getId(),
+            Region.NORTHEAST, getNorthEastCourt(interimWrapper.getInterimNorthEastFrcList(), courtList),
+            Region.NORTHWEST, getNorthWestCourt(interimWrapper.getInterimNorthWestFrcList(), courtList),
+            Region.SOUTHWEST, getSouthWestCourt(interimWrapper.getInterimSouthWestFrcList(), courtList),
+            Region.SOUTHEAST, getSouthEastCourt(interimWrapper.getInterimSouthEastFrcList(), courtList),
+            Region.WALES, getWalesCourt(interimWrapper.getInterimWalesFrcList(), courtList)
+        ).get(interimWrapper.getInterimRegionList());
+    }
+
+    @JsonIgnore
+    public String getGeneralApplicationSelectedCourt() {
+        GeneralApplicationRegionWrapper regionWrapper = getRegionWrapper().getGeneralApplicationRegionWrapper();
+        CourtListWrapper courtList = regionWrapper.getCourtListWrapper();
+        return Map.of(
+            Region.MIDLANDS, getMidlandsCourt(regionWrapper.getGeneralApplicationDirectionsMidlandsFrcList(),
+                courtList),
+            Region.LONDON, regionWrapper.getCourtListWrapper().getGeneralApplicationDirectionsCfcCourtList().getId(),
+            Region.NORTHEAST, getNorthEastCourt(regionWrapper.getGeneralApplicationDirectionsNorthEastFrcList(),
+                courtList),
+            Region.NORTHWEST, getNorthWestCourt(regionWrapper.getGeneralApplicationDirectionsNorthWestFrcList(),
+                courtList),
+            Region.SOUTHWEST, getSouthWestCourt(regionWrapper.getGeneralApplicationDirectionsSouthWestFrcList(),
+                courtList),
+            Region.SOUTHEAST, getSouthEastCourt(regionWrapper.getGeneralApplicationDirectionsSouthEastFrcList(),
+                courtList),
+            Region.WALES, getWalesCourt(regionWrapper.getGeneralApplicationDirectionsWalesFrcList(), courtList)
+        ).get(regionWrapper.getGeneralApplicationDirectionsRegionList());
+    }
+
+    @JsonIgnore
+    private String getMidlandsCourt(RegionMidlandsFrc frc, CourtListWrapper courtList) {
+        return Map.of(
+            RegionMidlandsFrc.NOTTINGHAM, courtList.getNottinghamCourt().getId(),
+            RegionMidlandsFrc.BIRMINGHAM, courtList.getBirminghamCourt().getId())
+            .get(frc);
+    }
+
+    @JsonIgnore
+    private String getNorthEastCourt(RegionNorthEastFrc frc, CourtListWrapper courtList) {
+        return Map.of(
+            RegionNorthEastFrc.CLEVELAND, courtList.getClevelandCourt(isConsentedApplication()).getId(),
+            RegionNorthEastFrc.HS_YORKSHIRE, courtList.getHumberCourt().getId(),
+            RegionNorthEastFrc.NW_YORKSHIRE, courtList.getNwYorkshireCourt().getId()
+        ).get(frc);
+    }
+
+    @JsonIgnore
+    private String getNorthWestCourt(RegionNorthWestFrc frc, CourtListWrapper courtList) {
+        return Map.of(
+            RegionNorthWestFrc.MANCHESTER, courtList.getManchesterCourt().getId(),
+            RegionNorthWestFrc.LANCASHIRE, courtList.getLancashireCourt().getId(),
+            RegionNorthWestFrc.LIVERPOOL, courtList.getLiverpoolCourt().getId()
+        ).get(frc);
+    }
+
+    @JsonIgnore
+    private String getSouthWestCourt(RegionSouthWestFrc frc, CourtListWrapper courtList) {
+        return Map.of(
+            RegionSouthWestFrc.BRISTOL, courtList.getBristolCourt().getId(),
+            RegionSouthWestFrc.DEVON, courtList.getDevonCourt().getId(),
+            RegionSouthWestFrc.DORSET, courtList.getDorsetCourt().getId()
+        ).get(frc);
+    }
+
+    @JsonIgnore
+    private String getSouthEastCourt(RegionSouthEastFrc frc, CourtListWrapper courtList) {
+        return Map.of(
+            RegionSouthEastFrc.BEDFORDSHIRE, courtList.getBedfordshireCourt().getId(),
+            RegionSouthEastFrc.KENT, courtList.getKentSurreyCourt().getId(),
+            RegionSouthEastFrc.THAMES_VALLEY, courtList.getThamesValleyCourt().getId()
+        ).get(frc);
+    }
+
+    @JsonIgnore
+    private String getWalesCourt(RegionWalesFrc frc, CourtListWrapper courtList) {
+        return Map.of(
+            RegionWalesFrc.NORTH_WALES, courtList.getNorthWalesCourt().getId(),
+            RegionWalesFrc.NEWPORT, courtList.getNewportCourt().getId(),
+            RegionWalesFrc.SWANSEA, courtList.getSwanseaCourt().getId()
+        ).get(frc);
+    }
 }
+
