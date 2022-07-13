@@ -259,6 +259,7 @@ public class FinremCaseData {
     private OrganisationPolicy respondentOrganisationPolicy;
     @JsonProperty("Contested_ConsentedApprovedOrders")
     private List<ConsentOrderCollection> contestedConsentedApprovedOrders;
+    private CaseRole currentUserCaseRole;
     @JsonUnwrapped
     @Getter(AccessLevel.NONE)
     private RegionWrapper regionWrapper;
