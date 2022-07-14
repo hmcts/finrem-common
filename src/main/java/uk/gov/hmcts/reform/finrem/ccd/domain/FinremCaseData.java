@@ -441,14 +441,14 @@ public class FinremCaseData {
 
     @JsonIgnore
     public boolean isApplicantRepresentedByASolicitor() {
-        return contactDetailsWrapper.getApplicantRepresented().isYes();
+        return getContactDetailsWrapper().getApplicantRepresented().isYes();
     }
 
     @JsonIgnore
     public boolean isApplicantSolicitorAgreeToReceiveEmails() {
         return ccdCaseType.equals(CaseType.CONTESTED)
-            ? contactDetailsWrapper.getApplicantSolicitorConsentForEmails().isYes()
-            : contactDetailsWrapper.getSolicitorAgreeToReceiveEmails().isYes();
+            ? getContactDetailsWrapper().getApplicantSolicitorConsentForEmails().isYes()
+            : getContactDetailsWrapper().getSolicitorAgreeToReceiveEmails().isYes();
     }
 
     @JsonIgnore
@@ -458,8 +458,8 @@ public class FinremCaseData {
 
     @JsonIgnore
     public boolean isRespondentRepresentedByASolicitor() {
-        return contactDetailsWrapper.getContestedRespondentRepresented().isYes()
-            || contactDetailsWrapper.getConsentedRespondentRepresented().isYes();
+        return getContactDetailsWrapper().getContestedRespondentRepresented().isYes()
+            || getContactDetailsWrapper().getConsentedRespondentRepresented().isYes();
     }
 
     @JsonIgnore
@@ -474,7 +474,7 @@ public class FinremCaseData {
 
     @JsonIgnore
     public boolean isApplicantSolicitorResponsibleToDraftOrder() {
-        return solicitorResponsibleForDraftingOrder.equals(SolicitorToDraftOrder.APPLICANT_SOLICITOR);
+        return SolicitorToDraftOrder.APPLICANT_SOLICITOR.equals(solicitorResponsibleForDraftingOrder);
     }
 
     @JsonIgnore
@@ -511,51 +511,51 @@ public class FinremCaseData {
 
     @JsonIgnore
     public boolean isApplicantAddressConfidential() {
-        return contactDetailsWrapper.getApplicantAddressConfidential().isYes();
+        return getContactDetailsWrapper().getApplicantAddressConfidential().isYes();
     }
 
     @JsonIgnore
     public boolean isRespondentAddressConfidential() {
-        return contactDetailsWrapper.getRespondentAddressConfidential().isYes();
+        return getContactDetailsWrapper().getRespondentAddressConfidential().isYes();
     }
 
     @JsonIgnore
     public boolean isContestedOrderNotApprovedCollectionPresent() {
-        return consentOrderWrapper.getConsentedNotApprovedOrders() != null
-            && !consentOrderWrapper.getConsentedNotApprovedOrders().isEmpty();
+        return getConsentOrderWrapper().getConsentedNotApprovedOrders() != null
+            && !getConsentOrderWrapper().getConsentedNotApprovedOrders().isEmpty();
     }
 
     @JsonIgnore
     public String getApplicantSolicitorName() {
         return isConsentedApplication()
-            ? contactDetailsWrapper.getSolicitorName()
-            : contactDetailsWrapper.getApplicantSolicitorName();
+            ? getContactDetailsWrapper().getSolicitorName()
+            : getContactDetailsWrapper().getApplicantSolicitorName();
     }
 
     @JsonIgnore
     public Address getApplicantSolicitorAddress() {
         return isConsentedApplication()
-            ? contactDetailsWrapper.getSolicitorAddress()
-            : contactDetailsWrapper.getApplicantSolicitorAddress();
+            ? getContactDetailsWrapper().getSolicitorAddress()
+            : getContactDetailsWrapper().getApplicantSolicitorAddress();
     }
 
     @JsonIgnore
     public String getApplicantSolicitorEmail() {
         return isConsentedApplication()
-            ? contactDetailsWrapper.getSolicitorEmail()
-            : contactDetailsWrapper.getApplicantSolicitorEmail();
+            ? getContactDetailsWrapper().getSolicitorEmail()
+            : getContactDetailsWrapper().getApplicantSolicitorEmail();
     }
 
     @JsonIgnore
     public String getApplicantSolicitorFirm() {
         return isConsentedApplication()
-            ? contactDetailsWrapper.getSolicitorFirm()
-            : contactDetailsWrapper.getApplicantSolicitorFirm();
+            ? getContactDetailsWrapper().getSolicitorFirm()
+            : getContactDetailsWrapper().getApplicantSolicitorFirm();
     }
 
     @JsonIgnore
     public String getRespondentSolicitorName() {
-        return contactDetailsWrapper.getRespondentSolicitorName();
+        return getContactDetailsWrapper().getRespondentSolicitorName();
     }
 
     @JsonIgnore
