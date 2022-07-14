@@ -464,12 +464,12 @@ public class FinremCaseData {
 
     @JsonIgnore
     public boolean isPaperCase() {
-        return paperApplication.isYes();
+        return YesOrNo.YES.equals(paperApplication);
     }
 
     @JsonIgnore
     public boolean isConsentedInContestedCase() {
-        return ccdCaseType.equals(CaseType.CONTESTED) && consentOrderWrapper.getConsentD81Question() != null;
+        return CaseType.CONTESTED.equals(ccdCaseType) && consentOrderWrapper.getConsentD81Question() != null;
     }
 
     @JsonIgnore
