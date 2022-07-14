@@ -469,7 +469,7 @@ public class FinremCaseData {
 
     @JsonIgnore
     public boolean isConsentedInContestedCase() {
-        return ccdCaseType.equals(CaseType.CONTESTED) && consentOrderWrapper.getConsentD81Question().isYes();
+        return ccdCaseType.equals(CaseType.CONTESTED) && consentOrderWrapper.getConsentD81Question() != null;
     }
 
     @JsonIgnore
