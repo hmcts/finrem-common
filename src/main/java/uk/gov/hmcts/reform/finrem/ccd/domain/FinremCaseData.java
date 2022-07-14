@@ -441,25 +441,25 @@ public class FinremCaseData {
 
     @JsonIgnore
     public boolean isApplicantRepresentedByASolicitor() {
-        return getContactDetailsWrapper().getApplicantRepresented().isYes();
+        return YesOrNo.YES.equals(getContactDetailsWrapper().getApplicantRepresented());
     }
 
     @JsonIgnore
     public boolean isApplicantSolicitorAgreeToReceiveEmails() {
-        return ccdCaseType.equals(CaseType.CONTESTED)
-            ? getContactDetailsWrapper().getApplicantSolicitorConsentForEmails().isYes()
-            : getContactDetailsWrapper().getSolicitorAgreeToReceiveEmails().isYes();
+        return CaseType.CONTESTED.equals(ccdCaseType)
+            ? YesOrNo.YES.equals(getContactDetailsWrapper().getApplicantSolicitorConsentForEmails())
+            : YesOrNo.YES.equals(getContactDetailsWrapper().getSolicitorAgreeToReceiveEmails());
     }
 
     @JsonIgnore
     public boolean isRespondentSolicitorAgreeToReceiveEmails() {
-        return respSolNotificationsEmailConsent.isYes();
+        return YesOrNo.YES.equals(respSolNotificationsEmailConsent);
     }
 
     @JsonIgnore
     public boolean isRespondentRepresentedByASolicitor() {
-        return getContactDetailsWrapper().getContestedRespondentRepresented().isYes()
-            || getContactDetailsWrapper().getConsentedRespondentRepresented().isYes();
+        return YesOrNo.YES.equals(getContactDetailsWrapper().getContestedRespondentRepresented())
+            || YesOrNo.YES.equals(getContactDetailsWrapper().getConsentedRespondentRepresented());
     }
 
     @JsonIgnore
@@ -479,12 +479,12 @@ public class FinremCaseData {
 
     @JsonIgnore
     public boolean isConsentedApplication() {
-        return ccdCaseType.equals(CaseType.CONSENTED);
+        return CaseType.CONSENTED.equals(ccdCaseType);
     }
 
     @JsonIgnore
     public boolean isContestedApplication() {
-        return ccdCaseType.equals(CaseType.CONTESTED);
+        return CaseType.CONTESTED.equals(ccdCaseType);
     }
 
     @JsonIgnore
@@ -511,12 +511,12 @@ public class FinremCaseData {
 
     @JsonIgnore
     public boolean isApplicantAddressConfidential() {
-        return getContactDetailsWrapper().getApplicantAddressConfidential().isYes();
+        return YesOrNo.YES.equals(getContactDetailsWrapper().getApplicantAddressConfidential());
     }
 
     @JsonIgnore
     public boolean isRespondentAddressConfidential() {
-        return getContactDetailsWrapper().getRespondentAddressConfidential().isYes();
+        return YesOrNo.YES.equals(getContactDetailsWrapper().getRespondentAddressConfidential());
     }
 
     @JsonIgnore
