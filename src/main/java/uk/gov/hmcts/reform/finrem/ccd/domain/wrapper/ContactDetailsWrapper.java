@@ -37,7 +37,9 @@ public class ContactDetailsWrapper {
     private Address applicantAddress;
     private String applicantPhone;
     private String applicantEmail;
-    @JsonProperty("applicantAddressConfidential")
+    @JsonProperty("applicantAddressHidden")
+    private YesOrNo applicantAddressHidden;
+    @JsonProperty(value = "applicantAddressConfidential")
     private YesOrNo applicantAddressHiddenFromRespondent;
     @JsonProperty("respondentFMName")
     private String respondentFmName;
@@ -62,7 +64,9 @@ public class ContactDetailsWrapper {
     private Address respondentAddress;
     private String respondentPhone;
     private String respondentEmail;
-    @JsonProperty("respondentAddressConfidential")
+    @JsonProperty("respondentAddressHidden")
+    private YesOrNo respondentAddressHidden;
+    @JsonProperty(value = "respondentAddressConfidential")
     private YesOrNo respondentAddressHiddenFromApplicant;
     private String solicitorName;
     private String solicitorFirm;
