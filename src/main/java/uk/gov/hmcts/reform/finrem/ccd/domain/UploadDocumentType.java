@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
@@ -27,7 +26,6 @@ public enum UploadDocumentType {
         return id;
     }
 
-    @JsonCreator
     public static UploadDocumentType getUploadDocumentType(String ccdType) {
         return Arrays.stream(UploadDocumentType.values())
             .filter(option -> option.id.equals(ccdType))

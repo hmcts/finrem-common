@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
@@ -30,7 +29,6 @@ public enum RefusalReason {
         return value;
     }
 
-    @JsonCreator
     public static RefusalReason forValue(String value) {
         return Arrays.stream(RefusalReason.values())
             .filter(option -> value.equalsIgnoreCase(option.getValue()))

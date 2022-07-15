@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
@@ -51,7 +50,6 @@ public enum PotentialAllegation {
         return text;
     }
 
-    @JsonCreator
     public static PotentialAllegation forValue(String value) {
         return Arrays.stream(PotentialAllegation.values())
             .filter(option -> value.equalsIgnoreCase(option.getValue()))

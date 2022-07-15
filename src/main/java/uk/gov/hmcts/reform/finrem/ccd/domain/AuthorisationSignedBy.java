@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
@@ -19,7 +18,6 @@ public enum AuthorisationSignedBy {
         return id;
     }
 
-    @JsonCreator
     public static AuthorisationSignedBy getAuthorisationSignedBy(String ccdType) {
         return Arrays.stream(AuthorisationSignedBy.values())
             .filter(option -> option.id.equals(ccdType))

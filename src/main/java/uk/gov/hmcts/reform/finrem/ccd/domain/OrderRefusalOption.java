@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
@@ -29,7 +28,6 @@ public enum OrderRefusalOption {
         return id;
     }
 
-    @JsonCreator
     public static OrderRefusalOption getOrderRefusalOption(String ccdType) {
         return Arrays.stream(OrderRefusalOption.values())
             .filter(option -> option.id.equals(ccdType))

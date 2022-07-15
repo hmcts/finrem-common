@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
@@ -18,7 +17,6 @@ public enum UploadOrderDocumentType {
         return value;
     }
 
-    @JsonCreator
     public static UploadOrderDocumentType forValue(String value) {
         return Arrays.stream(UploadOrderDocumentType.values())
             .filter(option -> value.equalsIgnoreCase(option.getValue()))

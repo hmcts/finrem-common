@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
@@ -40,7 +39,6 @@ public enum CaseDocumentType {
         return id;
     }
 
-    @JsonCreator
     public static CaseDocumentType getCaseDocumentType(String ccdType) {
         return Arrays.stream(CaseDocumentType.values())
             .filter(option -> option.id.equals(ccdType))

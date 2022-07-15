@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -22,7 +21,6 @@ public enum NatureApplication5b {
         return value;
     }
 
-    @JsonCreator
     public static NatureApplication5b forValue(String value) {
         return Arrays.stream(NatureApplication5b.values())
             .filter(option -> value.equalsIgnoreCase(option.getValue()))

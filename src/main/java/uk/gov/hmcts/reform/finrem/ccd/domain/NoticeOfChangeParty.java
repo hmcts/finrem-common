@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -11,8 +10,8 @@ import java.util.Arrays;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
 public enum NoticeOfChangeParty {
-    APPLICANT("Applicant"),
-    RESPONDENT("Respondent");
+    APPLICANT("applicant"),
+    RESPONDENT("respondent");
 
     private final String value;
 
@@ -21,7 +20,6 @@ public enum NoticeOfChangeParty {
         return value;
     }
 
-    @JsonCreator
     public static NoticeOfChangeParty forValue(String value) {
         return Arrays.stream(NoticeOfChangeParty.values())
             .filter(option -> value.equalsIgnoreCase(option.getValue()))

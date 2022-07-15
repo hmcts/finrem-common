@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
@@ -25,7 +24,6 @@ public enum SendOrderEventPostStateOption {
         return eventToTrigger;
     }
 
-    @JsonCreator
     public static SendOrderEventPostStateOption forValue(String value) {
         return Arrays.stream(SendOrderEventPostStateOption.values())
             .filter(option -> value.equalsIgnoreCase(option.getValue()))

@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -27,7 +26,6 @@ public enum NwYorkshireCourt {
         return id;
     }
 
-    @JsonCreator
     public static NwYorkshireCourt getNwYorkshireCourt(String ccdType) {
         return Arrays.stream(NwYorkshireCourt.values())
             .filter(option -> option.id.equals(ccdType))

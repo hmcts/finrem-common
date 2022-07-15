@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
@@ -26,7 +25,6 @@ public enum NottinghamCourt {
         return id;
     }
 
-    @JsonCreator
     public static NottinghamCourt getNottinghamCourt(String ccdType) {
         return Arrays.stream(NottinghamCourt.values())
             .filter(option -> option.id.equals(ccdType))
