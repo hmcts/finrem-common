@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -27,7 +26,6 @@ public enum DorsetCourt {
         return id;
     }
 
-    @JsonCreator
     public static DorsetCourt getDorsetCourt(String ccdType) {
         return Arrays.stream(DorsetCourt.values())
             .filter(option -> option.id.equals(ccdType))
