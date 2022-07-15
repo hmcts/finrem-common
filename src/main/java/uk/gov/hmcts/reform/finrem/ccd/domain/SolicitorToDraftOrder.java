@@ -1,6 +1,6 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -11,8 +11,8 @@ import java.util.Arrays;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
 public enum SolicitorToDraftOrder {
-    APPLICANT_SOLICITOR("applicantSolicitor"),
-    RESPONDENT_SOLICITOR("respondentSolicitor");
+    @JsonProperty("applicantSolicitor") APPLICANT_SOLICITOR("applicantSolicitor"),
+    @JsonProperty("respondentSolicitor") RESPONDENT_SOLICITOR("respondentSolicitor");
 
     private final String value;
 
@@ -21,7 +21,6 @@ public enum SolicitorToDraftOrder {
         return value;
     }
 
-    @JsonCreator
     public static SolicitorToDraftOrder forValue(String value) {
         return Arrays.stream(SolicitorToDraftOrder.values())
             .filter(option -> value.equalsIgnoreCase(option.getValue()))
