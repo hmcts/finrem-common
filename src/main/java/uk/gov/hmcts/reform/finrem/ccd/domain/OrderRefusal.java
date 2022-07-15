@@ -2,6 +2,7 @@ package uk.gov.hmcts.reform.finrem.ccd.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.AllArgsConstructor;
@@ -22,6 +23,7 @@ public class OrderRefusal {
     private List<OrderRefusalOption> orderRefusal;
     private String orderRefusalOther;
     private Document orderRefusalDocs;
+    @JsonProperty("orderRefusalJudge")
     private JudgeType orderRefusalJudge;
     private String orderRefusalJudgeName;
     @JsonSerialize(using = LocalDateSerializer.class)
