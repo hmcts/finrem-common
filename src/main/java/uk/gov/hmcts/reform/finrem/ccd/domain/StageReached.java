@@ -21,7 +21,7 @@ public enum StageReached {
     }
 
     @JsonCreator
-    public static StageReached forValue(@JsonProperty("divorceStageReached") String selectedStage) {
+    public static StageReached forValue(String selectedStage) {
         return Arrays.stream(StageReached.values())
             .filter(option -> selectedStage.equalsIgnoreCase(option.getValue()))
             .findFirst().orElseThrow(IllegalArgumentException::new);
