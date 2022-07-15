@@ -511,12 +511,12 @@ public class FinremCaseData {
 
     @JsonIgnore
     public boolean isApplicantAddressConfidential() {
-        return YesOrNo.YES.equals(getContactDetailsWrapper().getApplicantAddressConfidential());
+        return YesOrNo.YES.equals(getContactDetailsWrapper().getApplicantAddressHiddenFromRespondent());
     }
 
     @JsonIgnore
     public boolean isRespondentAddressConfidential() {
-        return YesOrNo.YES.equals(getContactDetailsWrapper().getRespondentAddressConfidential());
+        return YesOrNo.YES.equals(getContactDetailsWrapper().getRespondentAddressHiddenFromApplicant());
     }
 
     @JsonIgnore
