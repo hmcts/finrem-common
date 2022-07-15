@@ -1,5 +1,6 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
@@ -7,9 +8,9 @@ import java.util.Arrays;
 
 @RequiredArgsConstructor
 public enum StageReached {
-    DECREE_NISI("Decree Nisi"),
-    DECREE_ABSOLUTE("Decree Absolute"),
-    PETITION_ISSUED("Petition Issued");
+    @JsonProperty("Decree Nisi") DECREE_NISI("Decree Nisi"),
+    @JsonProperty("Decree Absolute") DECREE_ABSOLUTE("Decree Absolute"),
+    @JsonProperty("Petition Issued") PETITION_ISSUED("Petition Issued");
 
     private final String value;
 
