@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
@@ -19,7 +18,6 @@ public enum CaseRole {
         return value;
     }
 
-    @JsonCreator
     public static CaseRole forValue(String value) {
         return Arrays.stream(CaseRole.values())
             .filter(option -> value.equalsIgnoreCase(option.getValue()))
