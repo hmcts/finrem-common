@@ -1,6 +1,7 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
@@ -20,9 +21,9 @@ public enum StageReached {
     }
 
     @JsonCreator
-    public static StageReached forValue(String value) {
+    public static StageReached forValue(@JsonProperty("divorceStageReached") String selectedStage) {
         return Arrays.stream(StageReached.values())
-            .filter(option -> value.equalsIgnoreCase(option.getValue()))
+            .filter(option -> selectedStage.equalsIgnoreCase(option.getValue()))
             .findFirst().orElseThrow(IllegalArgumentException::new);
     }
 }
