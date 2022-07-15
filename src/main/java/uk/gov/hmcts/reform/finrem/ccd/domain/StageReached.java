@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
@@ -19,7 +18,6 @@ public enum StageReached {
         return value;
     }
 
-    @JsonCreator
     public static StageReached forValue(String selectedStage) {
         return Arrays.stream(StageReached.values())
             .filter(option -> selectedStage.equalsIgnoreCase(option.getValue()))
