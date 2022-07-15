@@ -82,4 +82,6 @@ public class ContactDetailsWrapper {
     @JsonProperty("appRespondentRep")
     private YesOrNo consentedRespondentRepresented;
     private String isAdmin;
+    @JsonProperty("ConfidentialAddress")
+    private YesOrNo confidentialAddress;
 }
