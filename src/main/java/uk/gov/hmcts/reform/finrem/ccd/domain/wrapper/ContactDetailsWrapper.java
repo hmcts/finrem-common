@@ -61,6 +61,7 @@ public class ContactDetailsWrapper {
     private Address respondentAddress;
     private String respondentPhone;
     private String respondentEmail;
+    @JsonProperty("respondentAddressConfidential")
     private YesOrNo respondentAddressConfidential;
     private String solicitorName;
     private String solicitorFirm;
