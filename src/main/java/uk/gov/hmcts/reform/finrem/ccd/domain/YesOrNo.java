@@ -19,6 +19,12 @@ public enum YesOrNo {
         return value;
     }
 
+    public static String getYesOrNo(YesOrNo answer) {
+        return isYes(answer)
+            ? YesOrNo.YES.getYesOrNo()
+            : YesOrNo.NO.getYesOrNo();
+    }
+
     public boolean isYes() {
         return YES.getYesOrNo().equalsIgnoreCase(value);
     }
