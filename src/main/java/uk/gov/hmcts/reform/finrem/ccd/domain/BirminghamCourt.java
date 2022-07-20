@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.Arrays;
 
 @RequiredArgsConstructor
-public enum BirminghamCourt {
+public enum BirminghamCourt implements CourtList {
     BIRMINGHAM_CIVIL_AND_FAMILY_JUSTICE_CENTRE("FR_birmingham_hc_list_1"),
     COVENTRY_COMBINED_COURT_CENTRE("FR_birmingham_hc_list_2"),
     TELFORD_COUNTY_COURT_AND_FAMILY_COURT("FR_birmingham_hc_list_3"),
@@ -32,4 +32,8 @@ public enum BirminghamCourt {
             .findFirst().orElseThrow(IllegalArgumentException::new);
     }
 
+    @Override
+    public String getSelectedCourtId() {
+        return id;
+    }
 }

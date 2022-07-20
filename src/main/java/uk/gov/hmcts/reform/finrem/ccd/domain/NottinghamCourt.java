@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.Arrays;
 
 @RequiredArgsConstructor
-public enum NottinghamCourt {
+public enum NottinghamCourt implements CourtList {
 
     NOTTINGHAM_COUNTY_COURT_AND_FAMILY_COURT("FR_s_NottinghamList_1"),
     DERBY_COMBINED_COURT_CENTRE("FR_s_NottinghamList_2"),
@@ -29,5 +29,10 @@ public enum NottinghamCourt {
         return Arrays.stream(NottinghamCourt.values())
             .filter(option -> option.id.equals(ccdType))
             .findFirst().orElseThrow(IllegalArgumentException::new);
+    }
+
+    @Override
+    public String getSelectedCourtId() {
+        return id;
     }
 }

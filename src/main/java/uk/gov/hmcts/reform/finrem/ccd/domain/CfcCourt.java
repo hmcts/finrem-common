@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
-public enum CfcCourt {
+public enum CfcCourt implements CourtList {
     BROMLEY_COUNTY_COURT_AND_FAMILY_COURT("FR_s_CFCList_1"),
     CROYDON_COUNTY_COURT_AND_FAMILY_COURT("FR_s_CFCList_2"),
     EDMONTON_COOUNTY_COURT_AND_FAMILY_COURT("FR_s_CFCList_3"),
@@ -34,5 +34,10 @@ public enum CfcCourt {
         return Arrays.stream(CfcCourt.values())
             .filter(option -> option.id.equals(ccdType))
             .findFirst().orElseThrow(IllegalArgumentException::new);
+    }
+
+    @Override
+    public String getSelectedCourtId() {
+        return id;
     }
 }

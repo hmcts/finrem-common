@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
-public enum DorsetCourt {
+public enum DorsetCourt implements CourtList {
     FR_DORSET_LIST_1("FR_dorsetList_1"),
     FR_DORSET_LIST_2("FR_dorsetList_2"),
     FR_DORSET_LIST_3("FR_dorsetList_3"),
@@ -30,5 +30,10 @@ public enum DorsetCourt {
         return Arrays.stream(DorsetCourt.values())
             .filter(option -> option.id.equals(ccdType))
             .findFirst().orElseThrow(IllegalArgumentException::new);
+    }
+
+    @Override
+    public String getSelectedCourtId() {
+        return id;
     }
 }

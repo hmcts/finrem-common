@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @RequiredArgsConstructor
-public enum BedfordshireCourt {
+public enum BedfordshireCourt implements CourtList {
     FR_bedfordshireList_1("FR_bedfordshireList_1"),
     FR_bedfordshireList_2("FR_bedfordshireList_2"),
     FR_bedfordshireList_3("FR_bedfordshireList_3"),
@@ -35,4 +35,8 @@ public enum BedfordshireCourt {
             .findFirst().orElseThrow(IllegalArgumentException::new);
     }
 
+    @Override
+    public String getSelectedCourtId() {
+        return id;
+    }
 }
