@@ -51,9 +51,8 @@ public class FinremCaseData {
     @JsonProperty(access = WRITE_ONLY)
     private String ccdCaseId;
 
-    @JsonProperty(access = WRITE_ONLY)
-    private CaseType ccdCaseType;
 
+    private CaseType ccdCaseType;
     private String divorceCaseNumber;
     private StageReached divorceStageReached;
     private Document divorceUploadEvidence1;
