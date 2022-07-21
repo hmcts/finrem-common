@@ -3,6 +3,7 @@ package uk.gov.hmcts.reform.finrem.ccd.domain.wrapper;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.AllArgsConstructor;
@@ -66,6 +67,7 @@ public class ConsentOrderWrapper {
     private String consentAdditionalComments;
     private Document consentMiniFormA;
     private Document uploadConsentedOrder;
+    @JsonProperty("Contested_ConsentedApprovedOrders")
     private List<ConsentOrderCollection> contestedConsentedApprovedOrders;
     private List<UploadConsentOrderCollection> uploadConsentOrder;
 }
