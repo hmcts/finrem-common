@@ -51,8 +51,10 @@ public class FinremCaseData {
     @JsonProperty(access = WRITE_ONLY)
     private String ccdCaseId;
 
-    private String divorceCaseNumber;
+    @JsonProperty(access = WRITE_ONLY)
     private CaseType ccdCaseType;
+
+    private String divorceCaseNumber;
     private StageReached divorceStageReached;
     private Document divorceUploadEvidence1;
     @JsonSerialize(using = LocalDateSerializer.class)
@@ -263,8 +265,6 @@ public class FinremCaseData {
     private OrganisationPolicy applicantOrganisationPolicy;
     @JsonProperty("RespondentOrganisationPolicy")
     private OrganisationPolicy respondentOrganisationPolicy;
-    @JsonProperty("Contested_ConsentedApprovedOrders")
-    private List<ConsentOrderCollection> contestedConsentedApprovedOrders;
     private CaseRole currentUserCaseRole;
     @JsonUnwrapped
     @Getter(AccessLevel.NONE)
@@ -507,7 +507,8 @@ public class FinremCaseData {
 
     @JsonIgnore
     public boolean isContestedOrderApprovedCollectionPresent() {
-        return contestedConsentedApprovedOrders != null && !contestedConsentedApprovedOrders.isEmpty();
+        return getConsentOrderWrapper().getContestedConsentedApprovedOrders() != null
+            && !getConsentOrderWrapper().getContestedConsentedApprovedOrders().isEmpty();
     }
 
     @JsonIgnore
