@@ -265,6 +265,8 @@ public class FinremCaseData {
     @JsonProperty("RespondentOrganisationPolicy")
     private OrganisationPolicy respondentOrganisationPolicy;
     private CaseRole currentUserCaseRole;
+    @JsonProperty("applicantSolicitorAddress")
+    private Address applicantSolicitorAddress;
     @JsonUnwrapped
     @Getter(AccessLevel.NONE)
     private RegionWrapper regionWrapper;
@@ -434,7 +436,7 @@ public class FinremCaseData {
 
     @JsonIgnore
     public String getRespondentFullName() {
-        return ccdCaseType.equals(CaseType.CONTESTED)
+        return CaseType.CONTESTED.equals(ccdCaseType)
             ? getFullRespondentNameContested()
             : getFullRespondentNameConsented();
     }
@@ -537,7 +539,7 @@ public class FinremCaseData {
     public Address getApplicantSolicitorAddress() {
         return isConsentedApplication()
             ? getContactDetailsWrapper().getSolicitorAddress()
-            : getContactDetailsWrapper().getApplicantSolicitorAddress();
+            : applicantSolicitorAddress;
     }
 
     @JsonIgnore

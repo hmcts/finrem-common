@@ -24,7 +24,6 @@ public class ContactDetailsWrapper {
     private String applicantSolicitorName;
     private String applicantSolicitorFirm;
     private String solicitorReference;
-    private Address applicantSolicitorAddress;
     private String applicantSolicitorPhone;
     private String applicantSolicitorEmail;
     @JsonProperty("applicantSolicitorDXnumber")

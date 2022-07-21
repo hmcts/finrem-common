@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Address {
-
     @JsonProperty("AddressLine1")
     private String addressLine1;
     @JsonProperty("AddressLine2")
