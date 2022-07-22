@@ -537,7 +537,7 @@ public class FinremCaseData {
     public Address getApplicantSolicitorAddress() {
         return isConsentedApplication()
             ? getContactDetailsWrapper().getSolicitorAddress()
-            : applicantSolicitorAddress;
+            : getContactDetailsWrapper().getApplicantSolicitorAddress();
     }
 
     @JsonIgnore
