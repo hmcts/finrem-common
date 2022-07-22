@@ -204,6 +204,7 @@ public class FinremCaseData {
     private List<AdditionalHearingDocumentCollection> additionalHearingDocuments;
     private List<HearingDirectionDetailsCollection> hearingDirectionDetailsCollection;
     private List<DocumentCollection> hearingNoticeDocumentPack;
+    private List<DocumentCollection> hearingNoticesDocumentCollection;
     private HearingTypeDirection hearingType;
     private String timeEstimate;
     @JsonSerialize(using = LocalDateSerializer.class)
