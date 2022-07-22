@@ -202,6 +202,8 @@ public class FinremCaseData {
     private String soleTraderName1;
     private YesOrNo promptForAnyDocument;
     private List<AdditionalHearingDocumentCollection> additionalHearingDocuments;
+    private List<HearingDirectionDetailsCollection> hearingDirectionDetailsCollection;
+    private List<DocumentCollection> hearingNoticeDocumentPack;
     private HearingTypeDirection hearingType;
     private String timeEstimate;
     @JsonSerialize(using = LocalDateSerializer.class)
