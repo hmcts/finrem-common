@@ -42,5 +42,5 @@ public class InterimWrapper {
     private List<InterimHearingCollection> interimHearings;
     @JsonProperty("iHCollectionItemIds")
     private List<InterimHearingCollectionItemData> interimHearingCollectionItemIds;
-    List<InterimHearingBulkPrintDocumentsData> interimHearingDocuments;
+    private List<InterimHearingBulkPrintDocumentsData> interimHearingDocuments;
 }
