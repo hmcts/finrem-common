@@ -132,6 +132,9 @@ public enum EventType {
     UPLOAD_CONFIDENTIAL_DOCUMENT("FR_uploadConfidentialDocument"),
     UPDATE_Frc_INFORMATION("FR_updateFrcInformation"),
     MANAGE_HEARING_BUNDLES("FR_manageHearingBundles"),
+    INTERIM_HEARING("FR_listForInterimHearing"),
+    UPLOAD_APPROVED_ORDER("FR_uploadApprovedOrder"),
+    MANAGE_CASE_DOCUMENTS("FR_manageCaseDocuments"),
     @JsonEnumDefaultValue
     NONE("");
 

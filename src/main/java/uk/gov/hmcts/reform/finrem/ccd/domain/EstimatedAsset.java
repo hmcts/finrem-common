@@ -1,7 +1,6 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
@@ -22,7 +21,6 @@ public enum EstimatedAsset {
         return id;
     }
 
-    @JsonCreator
     public static EstimatedAsset getEstimatedAsset(String ccdType) {
         return Arrays.stream(EstimatedAsset.values())
             .filter(option -> option.id.equals(ccdType))

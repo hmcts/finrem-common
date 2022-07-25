@@ -3,6 +3,8 @@ package uk.gov.hmcts.reform.finrem.ccd.domain.wrapper;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +13,7 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.Document;
 import uk.gov.hmcts.reform.finrem.ccd.domain.EvidenceParty;
 import uk.gov.hmcts.reform.finrem.ccd.domain.GeneralApplicationCollection;
 import uk.gov.hmcts.reform.finrem.ccd.domain.GeneralApplicationOutcome;
-import uk.gov.hmcts.reform.finrem.ccd.domain.GeneralOrderJudgeType;
+import uk.gov.hmcts.reform.finrem.ccd.domain.JudgeType;
 import uk.gov.hmcts.reform.finrem.ccd.domain.YesOrNo;
 
 import java.time.LocalDate;
@@ -30,14 +32,16 @@ public class GeneralApplicationWrapper {
     private String generalApplicationDirectionsHearingTimeEstimate;
     private String generalApplicationDirectionsAdditionalInformation;
     private String generalApplicationDirectionsRecitals;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate generalApplicationDirectionsCourtOrderDate;
     private String generalApplicationDirectionsTextFromJudge;
     private Document generalApplicationDirectionsDocument;
     private String generalApplicationNotApprovedReason;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate generalApplicationDirectionsHearingDate;
-    private GeneralOrderJudgeType generalApplicationDirectionsJudgeType;
+    private JudgeType generalApplicationDirectionsJudgeType;
     private String generalApplicationDirectionsJudgeName;
     private List<GeneralApplicationCollection> generalApplicationCollection;
     private String generalApplicationCreatedBy;
@@ -47,6 +51,7 @@ public class GeneralApplicationWrapper {
     private Document generalApplicationDocument;
     private Document generalApplicationLatestDocument;
     private Document generalApplicationDraftOrder;
+    @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate generalApplicationLatestDocumentDate;
     private String generalApplicationPreState;

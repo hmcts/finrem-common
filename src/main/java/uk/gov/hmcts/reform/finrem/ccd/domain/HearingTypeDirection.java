@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;
 
@@ -20,7 +19,6 @@ public enum HearingTypeDirection {
         return id;
     }
 
-    @JsonCreator
     public static HearingTypeDirection getHearingTypeDirection(String ccdType) {
         return Arrays.stream(HearingTypeDirection.values())
             .filter(option -> option.id.equals(ccdType))

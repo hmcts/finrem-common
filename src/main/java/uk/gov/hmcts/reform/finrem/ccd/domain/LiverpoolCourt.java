@@ -1,13 +1,36 @@
 package uk.gov.hmcts.reform.finrem.ccd.domain;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import lombok.RequiredArgsConstructor;
+
+import java.util.Arrays;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public enum LiverpoolCourt {
-    FR_liverpoolList_1,
-    FR_liverpoolList_2,
-    FR_liverpoolList_3,
-    FR_liverpoolList_4,
-    FR_liverpoolList_5
+@RequiredArgsConstructor
+public enum LiverpoolCourt implements CourtList {
+    LIVERPOOL_CIVIL_FAMILY_COURT("FR_liverpool_hc_list_1"),
+    CHESTER_CIVIL_FAMILY_JUSTICE("FR_liverpool_hc_list_2"),
+    CREWE_COUNTY_FAMILY_COURT("FR_liverpool_hc_list_3"),
+    ST_HELENS_COUNTY_FAMILY_COURT("FR_liverpool_hc_list_4"),
+    BIRKENHEAD_COUNTY_FAMILY_COURT("FR_liverpool_hc_list_5");
+
+    private final String id;
+
+    @JsonValue
+    public String getId() {
+        return id;
+    }
+
+    public static LiverpoolCourt getLiverpoolCourt(String ccdType) {
+        return Arrays.stream(LiverpoolCourt.values())
+            .filter(option -> option.id.equals(ccdType))
+            .findFirst().orElseThrow(IllegalArgumentException::new);
+    }
+
+    @Override
+    public String getSelectedCourtId() {
+        return id;
+    }
 }

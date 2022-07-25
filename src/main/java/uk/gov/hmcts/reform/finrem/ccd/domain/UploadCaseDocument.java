@@ -18,4 +18,5 @@ public class UploadCaseDocument {
     private String caseDocumentOther;
     private YesOrNo caseDocumentConfidential;
     private String hearingDetails;
+    private YesOrNo caseDocumentFdr;
 }

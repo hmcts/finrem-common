@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 @Data
 @Builder
@@ -15,7 +14,6 @@ import lombok.NonNull;
 @AllArgsConstructor
 public class Organisation {
     @JsonProperty("OrganisationID")
-    @NonNull
     private String organisationID;
     @JsonProperty("OrganisationName")
     private String organisationName;

@@ -22,22 +22,30 @@ public class ContactDetailsWrapper {
     private NoticeOfChangeParty nocParty;
     private YesOrNo applicantRepresented;
     private String applicantSolicitorName;
+    @JsonProperty("applicantSolicitorAddress")
+    private Address applicantSolicitorAddress;
     private String applicantSolicitorFirm;
     private String solicitorReference;
-    private Address applicantSolicitorAddress;
     private String applicantSolicitorPhone;
     private String applicantSolicitorEmail;
+    @JsonProperty("applicantSolicitorDXnumber")
     private String applicantSolicitorDxNumber;
     private YesOrNo applicantSolicitorConsentForEmails;
+    @JsonProperty("applicantFMName")
     private String applicantFmName;
+    @JsonProperty("applicantLName")
     private String applicantLname;
     private Address applicantAddress;
     private String applicantPhone;
     private String applicantEmail;
-    private YesOrNo applicantAddressConfidential;
+    @JsonProperty("applicantAddressConfidential")
+    private YesOrNo applicantAddressHiddenFromRespondent;
+    @JsonProperty("respondentFMName")
     private String respondentFmName;
+    @JsonProperty("respondentLName")
     private String respondentLname;
-    private YesOrNo respondentRepresented;
+    @JsonProperty("respondentRepresented")
+    private YesOrNo contestedRespondentRepresented;
     @JsonProperty("rSolicitorName")
     private String respondentSolicitorName;
     @JsonProperty("rSolicitorFirm")
@@ -50,21 +58,25 @@ public class ContactDetailsWrapper {
     private String respondentSolicitorPhone;
     @JsonProperty("rSolicitorEmail")
     private String respondentSolicitorEmail;
-    @JsonProperty("rSolicitorDXNumber")
+    @JsonProperty("rSolicitorDXnumber")
     private String respondentSolicitorDxNumber;
     private Address respondentAddress;
     private String respondentPhone;
     private String respondentEmail;
-    private YesOrNo respondentAddressConfidential;
+    @JsonProperty("respondentAddressConfidential")
+    private YesOrNo respondentAddressHiddenFromApplicant;
     private String solicitorName;
     private String solicitorFirm;
     private Address solicitorAddress;
     private String solicitorPhone;
     private String solicitorEmail;
+    @JsonProperty("solicitorDXnumber")
     private String solicitorDxNumber;
     private YesOrNo solicitorAgreeToReceiveEmails;
+    @JsonProperty("appRespondentFMName")
     private String appRespondentFmName;
     private String appRespondentLName;
-    private YesOrNo appRespondentRep;
+    @JsonProperty("appRespondentRep")
+    private YesOrNo consentedRespondentRepresented;
     private String isAdmin;
 }
