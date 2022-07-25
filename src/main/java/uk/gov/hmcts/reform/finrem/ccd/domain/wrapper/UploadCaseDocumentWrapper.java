@@ -76,4 +76,5 @@ public class UploadCaseDocumentWrapper {
     private List<UploadCaseDocumentCollection> respExpertEvidenceCollShared;
     private List<UploadCaseDocumentCollection> respCorrespondenceDocsCollShared;
     private List<UploadCaseDocumentCollection> respOtherCollectionShared;
+    private List<UploadCaseDocumentCollection> manageCaseDocumentCollection;
 }
