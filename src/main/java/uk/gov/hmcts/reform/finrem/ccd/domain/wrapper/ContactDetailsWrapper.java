@@ -22,7 +22,6 @@ public class ContactDetailsWrapper {
     private NoticeOfChangeParty nocParty;
     private YesOrNo applicantRepresented;
     private String applicantSolicitorName;
-    @JsonProperty("applicantSolicitorAddress")
     private Address applicantSolicitorAddress;
     private String applicantSolicitorFirm;
     private String solicitorReference;
