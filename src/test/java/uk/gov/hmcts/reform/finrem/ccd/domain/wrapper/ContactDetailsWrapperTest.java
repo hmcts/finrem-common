@@ -29,7 +29,8 @@ public class ContactDetailsWrapperTest {
     @Test
     public void testFakeAddress() throws IOException {
         CallbackRequest callbackRequest = objectMapper.readValue(getResource(), CallbackRequest.class);
-        ContactDetailsWrapper contactDetailsWrapper = callbackRequest.getCaseDetails().getCaseData().getContactDetailsWrapper();
+        ContactDetailsWrapper contactDetailsWrapper = callbackRequest.getCaseDetails().getCaseData()
+            .getContactDetailsWrapper();
 
         Address fakeAddress = contactDetailsWrapper.getFakeAddress();
         assertNotNull(fakeAddress);
@@ -39,12 +40,13 @@ public class ContactDetailsWrapperTest {
         Address solAddress = contactDetailsWrapper.getSolicitorAddress();
         assertNotNull(solAddress);
         Address appSolAddress = contactDetailsWrapper.getApplicantSolicitorAddress();
+        assertNotNull(appSolAddress);
+
         assertNotNull(contactDetailsWrapper.getApplicantSolicitorName());
         assertNotNull(contactDetailsWrapper.getApplicantSolicitorEmail());
         assertNotNull(contactDetailsWrapper.getApplicantSolicitorFirm());
         assertNotNull(contactDetailsWrapper.getApplicantAddressHiddenFromRespondent());
         assertNotNull(contactDetailsWrapper.getRespondentAddressHiddenFromApplicant());
-        assertNotNull(appSolAddress);
 
         assertNotNull(contactDetailsWrapper.getUpdateIncludesRepresentativeChange());
         assertNotNull(contactDetailsWrapper.getRespondentSolicitorEmail());
