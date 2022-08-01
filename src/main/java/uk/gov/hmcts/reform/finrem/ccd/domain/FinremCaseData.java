@@ -514,12 +514,12 @@ public class FinremCaseData {
     }
 
     @JsonIgnore
-    public boolean isApplicantAddressConfidential() {
+    public boolean isAppAddressConfidential() {
         return YesOrNo.YES.equals(getContactDetailsWrapper().getApplicantAddressHiddenFromRespondent());
     }
 
     @JsonIgnore
-    public boolean isRespondentAddressConfidential() {
+    public boolean isRespAddressConfidential() {
         return YesOrNo.YES.equals(getContactDetailsWrapper().getRespondentAddressHiddenFromApplicant());
     }
 
@@ -530,28 +530,28 @@ public class FinremCaseData {
     }
 
     @JsonIgnore
-    public String getApplicantSolicitorName() {
+    public String getAppSolicitorName() {
         return isConsentedApplication()
             ? getContactDetailsWrapper().getSolicitorName()
             : getContactDetailsWrapper().getApplicantSolicitorName();
     }
 
     @JsonIgnore
-    public Address getApplicantSolicitorAddress() {
+    public Address getAppSolicitorAddress() {
         return isConsentedApplication()
             ? getContactDetailsWrapper().getSolicitorAddress()
             : getContactDetailsWrapper().getApplicantSolicitorAddress();
     }
 
     @JsonIgnore
-    public String getApplicantSolicitorEmail() {
+    public String getAppSolicitorEmail() {
         return isConsentedApplication()
             ? getContactDetailsWrapper().getSolicitorEmail()
             : getContactDetailsWrapper().getApplicantSolicitorEmail();
     }
 
     @JsonIgnore
-    public String getApplicantSolicitorFirm() {
+    public String getAppSolicitorFirm() {
         return isConsentedApplication()
             ? getContactDetailsWrapper().getSolicitorFirm()
             : getContactDetailsWrapper().getApplicantSolicitorFirm();
@@ -608,8 +608,8 @@ public class FinremCaseData {
         return Map.of(
             Region.MIDLANDS, getMidlandsCourt(regionWrapper.getGeneralApplicationDirectionsMidlandsFrcList(),
                 courtList),
-            Region.LONDON, getCourtListIdOrDefault(regionWrapper.getCourtListWrapper().getGeneralApplicationDirectionsCfcCourtList())
-                .getSelectedCourtId(),
+            Region.LONDON, getCourtListIdOrDefault(regionWrapper.getCourtListWrapper()
+                .getGeneralApplicationDirectionsCfcCourtList()).getSelectedCourtId(),
             Region.NORTHEAST, getNorthEastCourt(regionWrapper.getGeneralApplicationDirectionsNorthEastFrcList(),
                 courtList),
             Region.NORTHWEST, getNorthWestCourt(regionWrapper.getGeneralApplicationDirectionsNorthWestFrcList(),
@@ -633,7 +633,8 @@ public class FinremCaseData {
     @JsonIgnore
     private String getNorthEastCourt(RegionNorthEastFrc frc, CourtListWrapper courtList) {
         return Map.of(
-            RegionNorthEastFrc.CLEVELAND, getCourtListIdOrDefault(courtList.getClevelandCourt(isConsentedApplication())),
+            RegionNorthEastFrc.CLEVELAND, getCourtListIdOrDefault(courtList
+                .getClevelandCourt(isConsentedApplication())),
             RegionNorthEastFrc.HS_YORKSHIRE, getCourtListIdOrDefault(courtList.getHumberCourt()),
             RegionNorthEastFrc.NW_YORKSHIRE, getCourtListIdOrDefault(courtList.getNwYorkshireCourt())
         ).get(frc).getSelectedCourtId();

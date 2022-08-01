@@ -21,8 +21,8 @@ public class ContactDetailsWrapper {
     private YesOrNo updateIncludesRepresentativeChange;
     private NoticeOfChangeParty nocParty;
     private YesOrNo applicantRepresented;
-    private String applicantSolicitorName;
     private Address applicantSolicitorAddress;
+    private String applicantSolicitorName;
     private String applicantSolicitorFirm;
     private String solicitorReference;
     private String applicantSolicitorPhone;
@@ -78,4 +78,5 @@ public class ContactDetailsWrapper {
     @JsonProperty("appRespondentRep")
     private YesOrNo consentedRespondentRepresented;
     private String isAdmin;
+    private Address fakeAddress;
 }
