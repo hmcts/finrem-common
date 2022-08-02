@@ -49,6 +49,14 @@ public enum YesOrNo {
         return isNull(value) || NO.getYesOrNo().equalsIgnoreCase(value);
     }
 
+    public static boolean isNo(YesOrNo yesOrNo) {
+        return NO.equals(yesOrNo);
+    }
+
+    public static boolean isNo(String yesOrNo) {
+        return NO.getYesOrNo().equalsIgnoreCase(yesOrNo);
+    }
+
     public static YesOrNo forValue(String yesOrNo) {
         return Stream.of(YesOrNo.values())
             .filter(value -> value.getYesOrNo().equalsIgnoreCase(yesOrNo))
