@@ -411,27 +411,27 @@ public class FinremCaseData {
     @JsonIgnore
     public String getFullApplicantName() {
         return (
-            nullToEmpty(contactDetailsWrapper.getApplicantFmName()).trim()
+            nullToEmpty(getContactDetailsWrapper().getApplicantFmName()).trim()
             + " "
-            + nullToEmpty(contactDetailsWrapper.getApplicantLname()).trim()
+            + nullToEmpty(getContactDetailsWrapper().getApplicantLname()).trim()
         ).trim();
     }
 
     @JsonIgnore
     public String getFullRespondentNameContested() {
         return (
-            nullToEmpty(contactDetailsWrapper.getRespondentFmName()).trim()
+            nullToEmpty(getContactDetailsWrapper().getRespondentFmName()).trim()
                 + " "
-                + nullToEmpty(contactDetailsWrapper.getRespondentLname()).trim()
+                + nullToEmpty(getContactDetailsWrapper().getRespondentLname()).trim()
         ).trim();
     }
 
     @JsonIgnore
     public String getFullRespondentNameConsented() {
         return (
-            nullToEmpty(contactDetailsWrapper.getAppRespondentFmName()).trim()
+            nullToEmpty(getContactDetailsWrapper().getAppRespondentFmName()).trim()
                 + " "
-                + nullToEmpty(contactDetailsWrapper.getAppRespondentLName()).trim()
+                + nullToEmpty(getContactDetailsWrapper().getAppRespondentLName()).trim()
         ).trim();
     }
 
@@ -472,7 +472,7 @@ public class FinremCaseData {
 
     @JsonIgnore
     public boolean isConsentedInContestedCase() {
-        return CaseType.CONTESTED.equals(ccdCaseType) && consentOrderWrapper.getConsentD81Question() != null;
+        return CaseType.CONTESTED.equals(ccdCaseType) && getConsentOrderWrapper().getConsentD81Question() != null;
     }
 
     @JsonIgnore
