@@ -21,7 +21,8 @@ public enum NatureApplication {
         "Pension Compensation Attachment Order"),
     A_SETTLEMENT_OR_A_TRANSFER_OF_PROPERTY("A settlement or a transfer of property",
         "A settlement or a transfer of property for the benefit of the child(ren)"),
-    PROPERTY_ADJUSTMENT_ORDER("propertyAdjustmentOrder", "Property Adjustment Order");
+    PROPERTY_ADJUSTMENT_ORDER("propertyAdjustmentOrder", "Property Adjustment Order"),
+    VARIATION_ORDER("Variation Order", "Variation Order");
 
     private final String value;
     private final String text;
