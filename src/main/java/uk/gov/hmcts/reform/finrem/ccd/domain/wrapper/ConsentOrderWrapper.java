@@ -21,6 +21,7 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.NatureApplication;
 import uk.gov.hmcts.reform.finrem.ccd.domain.OtherDocumentCollection;
 import uk.gov.hmcts.reform.finrem.ccd.domain.PensionProvider;
 import uk.gov.hmcts.reform.finrem.ccd.domain.UploadConsentOrderCollection;
+import uk.gov.hmcts.reform.finrem.ccd.domain.VariationDocumentTypeCollection;
 import uk.gov.hmcts.reform.finrem.ccd.domain.YesOrNo;
 
 import java.time.LocalDate;
@@ -70,4 +71,8 @@ public class ConsentOrderWrapper {
     @JsonProperty("Contested_ConsentedApprovedOrders")
     private List<ConsentOrderCollection> contestedConsentedApprovedOrders;
     private List<UploadConsentOrderCollection> uploadConsentOrder;
+    private String consentVariationOrderLabelC;
+    private String consentVariationOrderLabelL;
+    private String otherDocLabel;
+    private List<VariationDocumentTypeCollection> otherVariationCollection;
 }
