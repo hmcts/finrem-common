@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 @Builder
@@ -13,4 +15,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UploadOrderCollection {
     private UploadOrder value;
+    private UUID id;
 }
