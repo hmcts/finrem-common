@@ -10,6 +10,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
@@ -20,6 +21,7 @@ import lombok.NoArgsConstructor;
 public class RegionWrapper {
     @JsonUnwrapped
     @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.PUBLIC)
     DefaultRegionWrapper defaultRegionWrapper;
     @JsonUnwrapped
     @Getter(AccessLevel.NONE)
