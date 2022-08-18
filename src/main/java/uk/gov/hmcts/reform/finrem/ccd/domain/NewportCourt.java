@@ -14,7 +14,12 @@ public enum NewportCourt implements CourtList {
     FR_newportList_2("FR_newport_hc_list_2"),
     FR_newportList_3("FR_newport_hc_list_3"),
     FR_newportList_4("FR_newport_hc_list_4"),
-    FR_newportList_5("FR_newport_hc_list_5");
+    FR_newportList_5("FR_newport_hc_list_5"),
+    CONSENTED_FR_newportList_1("FR_newportList_1"),
+    CONSENTED_FR_newportList_2("FR_newportList_2"),
+    CONSENTED_FR_newportList_3("FR_newportList_3"),
+    CONSENTED_FR_newportList_4("FR_newportList_4"),
+    CONSENTED_FR_newportList_5("FR_newportList_5");
 
     private final String id;
 

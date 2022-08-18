@@ -12,7 +12,10 @@ import java.util.Arrays;
 public enum ManchesterCourt implements CourtList {
     MANCHESTER_COURT("FR_manchester_hc_list_1"),
     STOCKPORT_COURT("FR_manchester_hc_list_2"),
-    WIGAN_COURT("FR_manchester_hc_list_3");
+    WIGAN_COURT("FR_manchester_hc_list_3"),
+    CONSENTED_MANCHESTER_COURT("FR_manchesterList_1"),
+    CONSENTED_STOCKPORT_COURT("FR_manchesterList_2"),
+    CONSENTED_WIGAN_COURT("FR_manchesterList_3");
 
 
     private final String id;

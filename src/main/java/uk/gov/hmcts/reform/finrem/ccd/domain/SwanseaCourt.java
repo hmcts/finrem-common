@@ -15,7 +15,13 @@ public enum SwanseaCourt implements CourtList {
     FR_swanseaList_3("FR_swansea_hc_list_3"),
     FR_swanseaList_4("FR_swansea_hc_list_4"),
     FR_swanseaList_5("FR_swansea_hc_list_5"),
-    FR_swanseaList_6("FR_swansea_hc_list_6");
+    FR_swanseaList_6("FR_swansea_hc_list_6"),
+    CONSENTED_FR_swanseaList_1("FR_swanseaList_1"),
+    CONSENTED_FR_swanseaList_2("FR_swanseaList_2"),
+    CONSENTED_FR_swanseaList_3("FR_swanseaList_3"),
+    CONSENTED_FR_swanseaList_4("FR_swanseaList_4"),
+    CONSENTED_FR_swanseaList_5("FR_swanseaList_5"),
+    CONSENTED_FR_swanseaList_6("FR_swanseaList_6");
 
     private final String id;
 
