@@ -24,7 +24,7 @@ public enum NatureApplication {
     PROPERTY_ADJUSTMENT_ORDER("propertyAdjustmentOrder", "Property Adjustment Order"),
     VARIATION_ORDER("Variation Order", "Variation Order"),
     CONSENTED_PERIODICAL_PAYMENT_ORDER("Periodical Payment Order", "Periodical Payment Order"),
-    CONSENTED_PROPRERTY_ADJUSTMENT_ORDER("Property Adjustment Order", "Property Adjustment Order");
+    CONSENTED_PROPERTY_ADJUSTMENT_ORDER("Property Adjustment Order", "Property Adjustment Order");
 
     private final String value;
     private final String text;
