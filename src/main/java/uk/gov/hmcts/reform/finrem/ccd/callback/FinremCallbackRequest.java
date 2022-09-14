@@ -18,7 +18,7 @@ import uk.gov.hmcts.reform.finrem.ccd.domain.FinremCaseDetails;
 @NoArgsConstructor
 @Getter
 @Builder
-public class CallbackRequest {
+public class FinremCallbackRequest {
 
     @JsonProperty("event_id")
     private EventType eventType;
