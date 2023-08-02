@@ -10,7 +10,7 @@ def versions = [
     lombok             : '1.18.22',
     hmctsCcdClient     : '4.8.6',
     hmctsIdamJavaClient: '2.0.1',
-    hmctsLogging       : '5.1.5',
+    hmctsLogging       : '6.0.1',
     pmd                : '6.19.0',
     checkstyle         : '8.32'
 ]
