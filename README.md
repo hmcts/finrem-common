@@ -1,3 +1,5 @@
+:exclamation: This repo has been deprecated and archived, as it is no longer used by [finrem-cos](https://github.com/hmcts/finrem-case-orchestration-service) and no services share a dependency on this library :exclamation: 
+
 ## finrem-common
 
 This is the common code library for financial remedy services. It currently contains:
